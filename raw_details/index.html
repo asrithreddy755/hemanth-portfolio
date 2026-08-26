@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulagam Hemanth Siva Reddy | Mechanical Engineering Portfolio</title>
+    <meta name="description"
+        content="Portfolio of Pulagam Hemanth Siva Reddy - Final-Year Mechanical Engineering Student specializing in CAD (CATIA V5), CFD Simulation (ANSYS Fluent), and Manufacturing Time-Study Optimization.">
+    <meta name="keywords"
+        content="Pulagam Hemanth Siva Reddy, Mechanical Engineer, CAD, CATIA V5, ANSYS Fluent, CFD, Vishnu Institute of Technology, SRM University AP, Yamaha Motor">
+    <meta name="author" content="Pulagam Hemanth Siva Reddy">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/images/profile.jpg">
+
+    <!-- Font Awesome & Lucide Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- Interactive Canvas Background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="container nav-wrapper">
+            <!-- Top-Left Circle Cropped Profile + Name in Single Line -->
+            <a href="#" class="brand-container">
+                <div class="brand-avatar-wrap">
+                    <img src="assets/images/profile.jpg" alt="Pulagam Hemanth Siva Reddy" class="brand-avatar">
+                </div>
+                <span class="brand-name">Pulagam Hemanth Siva Reddy</span>
+            </a>
+
+            <!-- Desktop Nav Menu -->
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="#leadership" class="nav-link">Leadership</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
+            </ul>
+
+            <!-- Action Buttons -->
+            <div class="nav-actions">
+                <button class="btn btn-outline btn-sm" onclick="openModal('resume-modal')">
+                    <i class="fa-solid fa-file-lines"></i> Resume
+                </button>
+                <a href="#contact" class="btn btn-primary btn-sm">
+                    <i class="fa-solid fa-paper-plane"></i> Contact
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer" id="mobile-drawer">
+        <button class="modal-close-btn" id="mobile-drawer-close" aria-label="Close Menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#education" class="mobile-nav-link">Education</a>
+        <a href="#experience" class="mobile-nav-link">Experience</a>
+        <a href="#projects" class="mobile-nav-link">Projects</a>
+        <a href="#skills" class="mobile-nav-link">Technical Skills</a>
+        <a href="#achievements" class="mobile-nav-link">Achievements</a>
+        <a href="#leadership" class="mobile-nav-link">Leadership</a>
+        <a href="#certifications" class="mobile-nav-link">Certifications</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+        <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+            <button class="btn btn-outline"
+                onclick="openModal('resume-modal'); document.getElementById('mobile-drawer').classList.remove('open');">
+                <i class="fa-solid fa-file-lines"></i> Resume
+            </button>
+            <a href="#contact" class="btn btn-primary"
+                onclick="document.getElementById('mobile-drawer').classList.remove('open');">
+                <i class="fa-solid fa-paper-plane"></i> Contact
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <!-- Left: Intro & Dynamic Typing -->
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="status-dot"></span>
+                        <span>Final-Year Mechanical Engineering Student</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Hi, I'm <br>
+                        <span class="gradient-text">Pulagam Hemanth</span> Siva Reddy
+                    </h1>
+
+                    <div class="hero-role-wrapper">
+                        <span>Specializing in&nbsp;</span>
+                        <span id="typing-text"></span>
+                        <span class="typing-cursor"></span>
+                    </div>
+
+                    <p class="hero-desc">
+                        Passionate about engineering design, multiphase CFD simulation, and manufacturing optimization.
+                        Experienced in taking concepts from 3D CAD assemblies into fluid flow simulations and real-world
+                        industrial implementations.
+                    </p>
+
+                    <div class="hero-cta-group">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fa-solid fa-compass-drafting"></i> Explore Projects
+                        </a>
+                        <a href="#experience" class="btn btn-outline">
+                            <i class="fa-solid fa-briefcase"></i> Experience
+                        </a>
+                        <button class="btn btn-amber" onclick="openModal('resume-modal')">
+                            <i class="fa-solid fa-eye"></i> View Resume
+                        </button>
+                    </div>
+
+                    <div class="hero-contact-strip">
+                        <a href="mailto:23pa1a0352@vishnu.edu.in" class="contact-pill">
+                            <i class="fa-solid fa-envelope" style="color: var(--primary);"></i> 23pa1a0352@vishnu.edu.in
+                        </a>
+                        <a href="tel:+917075688699" class="contact-pill">
+                            <i class="fa-solid fa-phone" style="color: var(--primary);"></i> +91 7075688699
+                        </a>
+                        <a href="https://www.linkedin.com/in/pulagam-hemanth-siva-reddy?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+                            target="_blank" rel="noopener" class="contact-pill">
+                            <i class="fa-brands fa-linkedin" style="color: #0ea5e9;"></i> LinkedIn Profile
+                        </a>
+                        <span class="contact-pill">
+                            <i class="fa-solid fa-location-dot" style="color: var(--primary);"></i> Andhra Pradesh,
+                            India
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Right: Profile Visual with CAD Crosshair & Floating Badges -->
+                <div class="hero-visual">
+                    <div class="avatar-frame">
+                        <div class="cad-crosshair"></div>
+                        <img src="assets/images/profile.jpg" alt="Pulagam Hemanth Siva Reddy" class="avatar-img-main">
+
+                        <!-- Floating Tech Badges -->
+                        <div class="float-badge float-badge-1">
+                            <i class="fa-solid fa-cube" style="color: #06b6d4;"></i>
+                            <span>CATIA V5 & CAD</span>
+                        </div>
+
+                        <div class="float-badge float-badge-2">
+                            <i class="fa-solid fa-wind" style="color: #3b82f6;"></i>
+                            <span>ANSYS Fluent CFD</span>
+                        </div>
+
+                        <div class="float-badge float-badge-3">
+                            <i class="fa-solid fa-industry" style="color: #f59e0b;"></i>
+                            <span>Yamaha & SRM AP Intern</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Metrics Strip (Clean 2-card layout) -->
+            <div class="stats-strip">
+                <div class="stat-item">
+                    <div class="stat-number">8.22</div>
+                    <div class="stat-label">B.Tech CGPA / 10.0 (Up to 6th Sem)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Research & Industrial Internships</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section & Engineering Pillars -->
+    <section id="about">
+        <div class="container">
+            <div class="header-center">
+                <div class="section-tag"><i class="fa-solid fa-user-gear"></i> Profile Overview</div>
+                <h2 class="section-title">Engineering Mindset & Core Strengths</h2>
+                <p class="section-subtitle">Blending analytical rigor, 3D modeling precision, and hands-on manufacturing
+                    insight.</p>
+            </div>
+
+            <div class="about-grid">
+                <!-- Narrative -->
+                <div class="glass-card about-narrative">
+                    <h3 style="font-family: var(--font-heading); color: var(--text-main); font-size: 1.4rem;">
+                        Turning Engineering Concepts into Viable Solutions
+                    </h3>
+                    <p>
+                        I am a <strong>Final-year Mechanical Engineering student</strong> at Vishnu Institute of
+                        Technology with practical exposure across engineering design, manufacturing optimization, CFD
+                        simulations, and product development.
+                    </p>
+                    <p>
+                        My experience spans analyzing transient multiphase fluid flow at <strong>SRM University
+                            AP</strong> using ANSYS Fluent (with stipend of ₹8,000) to conducting line-balancing and
+                        time-study analysis for proposed CKD manufacturing facilities at <strong>Yamaha Motor
+                            India</strong>.
+                    </p>
+                    <p>
+                        With strong analytical thinking, proficiency in <strong>CATIA V5, AutoCAD, Fusion 360, and ANSYS
+                            Fluent</strong>, I strive to design reliable, efficient, and manufacturable mechanical
+                        systems that address real-world challenges.
+                    </p>
+                    <div style="margin-top: 0.5rem;">
+                        <a href="#contact" class="btn btn-outline btn-sm">
+                            <i class="fa-solid fa-handshake"></i> Let's Collaborate
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 4 Engineering Pillars -->
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-icon"><i class="fa-solid fa-shapes"></i></div>
+                        <h4 class="pillar-title">3D CAD & Modeling</h4>
+                        <p class="pillar-desc">Comprehensive part modeling, parametric assemblies, and production
+                            drawings in CATIA V5 & Fusion 360.</p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon"><i class="fa-solid fa-water"></i></div>
+                        <h4 class="pillar-title">CFD & Multiphase Flow</h4>
+                        <p class="pillar-desc">Numerical simulation of transient three-phase fluid flow, mesh
+                            discretization, and bubble dynamics in ANSYS Fluent.</p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon"><i class="fa-solid fa-stopwatch-20"></i></div>
+                        <h4 class="pillar-title">Manufacturing Time-Study</h4>
+                        <p class="pillar-desc">Workstation cycle-time recording, line-balancing, bottleneck resolution,
+                            casting, and CKD assembly analysis.</p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon"><i class="fa-solid fa-tractor"></i></div>
+                        <h4 class="pillar-title">Agricultural Automation</h4>
+                        <p class="pillar-desc">Concept design of lightweight autonomous machinery for precision
+                            planting, weeding, and crop handling.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" style="background: rgba(13, 19, 34, 0.4);">
+        <div class="container">
+            <div class="header-center">
+                <div class="section-tag"><i class="fa-solid fa-graduation-cap"></i> Academic Journey</div>
+                <h2 class="section-title">Education & Academic Background</h2>
+                <p class="section-subtitle">Consistent academic excellence across school, intermediate, and
+                    undergraduate engineering studies.</p>
+            </div>
+
+            <div class="education-grid">
+                <!-- B.Tech -->
+                <div class="glass-card edu-card">
+                    <div>
+                        <div class="edu-header">
+                            <div class="edu-icon-badge"><i class="fa-solid fa-university"></i></div>
+                            <span class="edu-year">2023 – 2027</span>
+                        </div>
+                        <h3 class="edu-degree">Bachelor of Technology</h3>
+                        <div
+                            style="color: var(--primary-light); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.25rem;">
+                            Mechanical Engineering</div>
+                        <p class="edu-institution">Vishnu Institute of Technology, Bhimavaram</p>
+                    </div>
+                    <div class="edu-score-box">
+                        <span class="edu-score-label">Cumulative GPA</span>
+                        <span class="edu-score-value">8.22 / 10.0</span>
+                    </div>
+                </div>
+
+                <!-- Intermediate -->
+                <div class="glass-card edu-card">
+                    <div>
+                        <div class="edu-header">
+                            <div class="edu-icon-badge"><i class="fa-solid fa-school"></i></div>
+                            <span class="edu-year">2021 – 2023</span>
+                        </div>
+                        <h3 class="edu-degree">Intermediate (M.P.C)</h3>
+                        <div
+                            style="color: var(--primary-light); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.25rem;">
+                            Maths, Physics & Chemistry</div>
+                        <p class="edu-institution">Sasi Junior College, Tanuku</p>
+                    </div>
+                    <div class="edu-score-box">
+                        <span class="edu-score-label">Final Score</span>
+                        <span class="edu-score-value">91.6%</span>
+                    </div>
+                </div>
+
+                <!-- SSC -->
+                <div class="glass-card edu-card">
+                    <div>
+                        <div class="edu-header">
+                            <div class="edu-icon-badge"><i class="fa-solid fa-award"></i></div>
+                            <span class="edu-year">2020 – 2021</span>
+                        </div>
+                        <h3 class="edu-degree">Secondary School (SSC)</h3>
+                        <div
+                            style="color: var(--primary-light); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.25rem;">
+                            10th Standard Board</div>
+                        <p class="edu-institution">Sri Chaitanya Techno School, Penugonda</p>
+                    </div>
+                    <div class="edu-score-box">
+                        <span class="edu-score-label">Perfect Score</span>
+                        <span class="edu-score-value">100%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Timeline -->
+    <section id="experience">
+        <div class="container">
+            <div class="header-center">
+                <div class="section-tag"><i class="fa-solid fa-briefcase"></i> Career Trajectory</div>
+                <h2 class="section-title">Work Experience & Internships</h2>
+                <p class="section-subtitle">Hands-on computational research and shop-floor manufacturing exposure.</p>
+            </div>
+
+            <div class="timeline">
+                <!-- SRM University AP -->
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="glass-card exp-card">
+                        <div class="exp-top">
+                            <div>
+                                <h3 class="exp-role">Research Intern</h3>
+                                <div class="exp-company">
+                                    <i class="fa-solid fa-atom"></i> SRM University AP
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+                                <span class="exp-period"
+                                    style="background: rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.3); color: #34d399; font-weight: 600;">
+                                    <i class="fa-solid fa-indian-rupee-sign"></i> Stipend: ₹8,000
+                                </span>
+                                <span class="exp-period">Jun 2026 – Jul 2026</span>
+                            </div>
+                        </div>
+
+                        <!-- Visual Simulation Diagram of CFD Work -->
+                        <div class="exp-visual-banner">
+                            <img src="assets/images/cfd-multiphase.svg"
+                                alt="Transient Multiphase Pipe Flow CFD Analysis - SRM AP">
+                        </div>
+
+                        <ul class="exp-bullets">
+                            <li>Performed numerical analysis of transient three-phase pipe flow involving air, water,
+                                and engine oil using <strong>ANSYS Fluent</strong>.</li>
+                            <li>Created the 3D pipe computational domain geometry, generated high-quality computational
+                                mesh, and configured the multiphase flow model.</li>
+                            <li>Analyzed bubble formation dynamics, interphase boundary tracking, and phase interactions
+                                under transient flow conditions.</li>
+                            <li>Received a competitive research stipend of <strong>₹8,000</strong> for outstanding
+                                computational simulation performance.</li>
+                        </ul>
+
+                        <div class="exp-tags">
+                            <span class="tech-tag"><i class="fa-solid fa-microchip"></i> ANSYS Fluent</span>
+                            <span class="tech-tag"><i class="fa-solid fa-water"></i> Multiphase CFD</span>
+                            <span class="tech-tag"><i class="fa-solid fa-network-wired"></i> Computational
+                                Meshing</span>
+                            <span class="tech-tag"><i class="fa-solid fa-chart-line"></i> Transient Flow Analysis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yamaha Motor India -->
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="glass-card exp-card">
+                        <div class="exp-top">
+                            <div>
+                                <h3 class="exp-role">Manufacturing Engineering Intern</h3>
+                                <div class="exp-company">
+                                    <i class="fa-solid fa-industry"></i> Yamaha Motor India Pvt. Ltd., Chennai
+                                </div>
+                            </div>
+                            <span class="exp-period">Jun 2025</span>
+                        </div>
+
+                        <!-- Visual Diagram of Industrial Manufacturing Work -->
+                        <div class="exp-visual-banner">
+                            <img src="assets/images/yamaha-manufacturing.svg"
+                                alt="CKD Manufacturing Time-Study & Line Balancing - Yamaha Motor">
+                        </div>
+
+                        <ul class="exp-bullets">
+                            <li>Conducted a comprehensive <strong>time-study analysis</strong> for a proposed CKD
+                                (Completely Knocked Down) manufacturing facility.</li>
+                            <li>Recorded cycle times across multiple assembly workstations to identify bottlenecks and
+                                suggest line-balancing improvements.</li>
+                            <li>Gained practical exposure to casting and assembly operations through structured
+                                shop-floor visits, observing production flow and manufacturing protocols.</li>
+                        </ul>
+
+                        <div class="exp-tags">
+                            <span class="tech-tag"><i class="fa-solid fa-stopwatch"></i> Time-Study Analysis</span>
+                            <span class="tech-tag"><i class="fa-solid fa-gears"></i> CKD Manufacturing</span>
+                            <span class="tech-tag"><i class="fa-solid fa-fire"></i> Casting Operations</span>
+                            <span class="tech-tag"><i class="fa-solid fa-diagram-project"></i> Bottleneck
+                                Elimination</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Projects Section -->
+    <section id="projects" style="background: rgba(13, 19, 34, 0.4);">
+        <div class="container">
+            <div class="header-center">
+                <div class="section-tag"><i class="fa-solid fa-compass-drafting"></i> Featured Work</div>
+                <h2 class="section-title">Key Projects & Engineering Innovations</h2>
+                <p class="section-subtitle">Designing mechanical assemblies, automated systems, and fluid dynamic
+                    investigations.</p>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Agro-Machine Project (With Actual User Uploaded Images & Gallery) -->
+                <div class="glass-card project-card">
+                    <div class="project-banner">
+                        <img src="assets/images/agro-machine-main.png"
+                            alt="Autonomous Precision Agro-Machine for Planting & Weeding CAD 3D Model"
+                            id="card-agro-preview">
+                    </div>
+
+                    <!-- Thumbnail quick-preview bar -->
+                    <div class="project-thumb-preview-strip">
+                        <img src="assets/images/agro-machine-main.png" alt="Full CAD Assembly" title="Full CAD Assembly"
+                            onclick="document.getElementById('card-agro-preview').src='assets/images/agro-machine-main.png'">
+                        <img src="assets/images/agro-weeder-cad.jpg" alt="Weeding Blades CAD"
+                            title="Rotary Weeder Blades"
+                            onclick="document.getElementById('card-agro-preview').src='assets/images/agro-weeder-cad.jpg'">
+                        <img src="assets/images/agro-top-view.jpg" alt="Top View CAD" title="Top View Layout"
+                            onclick="document.getElementById('card-agro-preview').src='assets/images/agro-top-view.jpg'">
+                        <img src="assets/images/agro-ansys-structural.png" alt="ANSYS FEA Analysis"
+                            title="ANSYS Safety Factor"
+                            onclick="document.getElementById('card-agro-preview').src='assets/images/agro-ansys-structural.png'">
+                    </div>
+
+                    <div class="project-category">CAD & Agricultural Automation</div>
+                    <h3 class="project-title">Autonomous Precision Agro-Machine for Planting & Weeding</h3>
+                    <p class="project-desc">
+                        Conceptualized, designed in <strong>CATIA V5</strong>, and structural-analyzed in
+                        <strong>ANSYS</strong> an autonomous solar-powered agricultural robotic rover for precision
+                        planting & rotary weeding in rice and onion crops.
+                    </p>
+
+                    <ul class="project-highlights">
+                        <li>Lightweight chassis modeled in <strong>CATIA V5</strong> with solar power canopy.</li>
+                        <li>4-rotor motorized weeding unit & multi-channel sapling feeder arm.</li>
+                        <li><strong>ANSYS FEA Safety Factor Analysis</strong> verified (Min F.O.S = 3.99).</li>
+                    </ul>
+
+                    <div class="project-footer">
+                        <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+                            <span class="tech-tag">CATIA V5</span>
+                            <span class="tech-tag">ANSYS FEA</span>
+                        </div>
+                        <button class="btn btn-outline btn-sm" onclick="openModal('project-agro-modal')">
+                            <i class="fa-solid fa-images"></i> CAD Gallery & Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 3-Phase Multiphase Pipe Flow Simulation -->
+                <div class="glass-card project-card">
+                    <div class="project-banner">
+                        <img src="assets/images/cfd-multiphase.svg"
+                            alt="Transient Three-Phase Pipe Flow CFD Investigation">
+                    </div>
+
+                    <div class="project-category">CFD & Multiphase Simulation</div>
+                    <h3 class="project-title">Transient Three-Phase Pipe Flow CFD Investigation</h3>
+                    <p class="project-desc">
+                        High-fidelity numerical modeling of air-water-oil transient multiphase dynamics inside
+                        industrial pipeline geometry using ANSYS Fluent solver.
+                    </p>
+
+                    <ul class="project-highlights">
+                        <li>Structured and unstructured domain meshing with refinement.</li>
+                        <li>Tracking of air bubble inception and fluid phase boundary evolution.</li>
+                        <li>Detailed velocity and volume-fraction gradient evaluation.</li>
+                    </ul>
+
+                    <div class="project-footer">
+                        <span class="tech-tag">ANSYS Fluent</span>
+                        <button class="btn btn-outline btn-sm" onclick="openModal('project-cfd-modal')">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Case Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Oil-Leakage Detection Prototype -->
+                <div class="glass-card project-card">
+                    <div class="project-banner">
+                        <img src="assets/images/oil-leak-detection.svg"
+                            alt="Industrial Oil-Leakage Detection Prototype">
+                    </div>
+
+                    <div class="project-category">Prototyping & Mentorship</div>
+                    <h3 class="project-title">Industrial Oil-Leakage Detection Prototype</h3>
+                    <p class="project-desc">
+                        Guided a first-year engineering team through concept ideation, CAD packaging, and fabrication of
+                        an active mechanical prototype to detect oil leakage in machinery.
+                    </p>
+
+                    <ul class="project-highlights">
+                        <li>Mentored junior team through end-to-end prototype build.</li>
+                        <li>Early detection mechanism to avoid industrial equipment downtime.</li>
+                        <li>Showcased in Department Technical Event with high recognition.</li>
+                    </ul>
+
+                    <div class="project-footer">
+                        <span class="tech-tag">Fabrication</span>
+                        <button class="btn btn-outline btn-sm" onclick="openModal('project-leak-modal')">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Case Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills Matrix (Step-by-Step Bullet Points for All Categories) -->
+    <section id="skills">
+        <div class="container">
+            <div class="header-center">
+                <div class="section-tag"><i class="fa-solid fa-laptop-code"></i> Competencies</div>
+                <h2 class="section-title">Technical Skills & Tools Matrix</h2>
+                <p class="section-subtitle">Categorized step-by-step bullet points of engineering software, data tools,
+                    languages, and competencies.</p>
+            </div>
+
+            <div class="skills-grid">
+                <!-- 1. CAD & Design Tools -->
+                <div class="glass-card skill-category-card">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fa-solid fa-cube"></i></div>
+                        <h3 class="skill-cat-title">CAD & 3D Design</h3>
+                    </div>
+                    <ul class="skill-bullet-list">
+                        <li class="skill-bullet-item">
+                            <span class="skill-bullet-dot">•</span>
+                            <div class="skill-item-content">
+                                <span class="skill-item-name">CATIA V5</span>
+                                <span class="skill-item-detail">Part Design, Generative Shape Design, Assembly &
+                                    Drafting</span>
+                            </div>
+                        </li>
+                        <li class="skill-bullet-item">
+                            <span class="skill-bullet-dot">•</span>
+                            <div class="skill-item-content">
+                                <span class="skill-item-name">AutoCAD</span>
+                                <span class="skill-item-detail">2D Engineering Drawings, GD&T, Orthographic & Isometric
+                                    Projections</span>
+                            </div>
+                        </li>
+                        <li class="skill-bullet-item">
+                            <span class="skill-bullet-dot">•</span>
+                            <div class="skill-item-content">
+                                <span class="skill-item-name">Fusion 360</span>
+                                <span class="skill-item-detail">Parametric Solid Modeling, Rapid Prototyping &
+                                    Renderings</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 2. Simulation & Analysis (ANSYS Fluent CFD) -->
+                <div class="glass-card skill-category-card">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fa-solid fa-wind"></i></div>
+                        <h3 class="skill-cat-title">Simulation & Analysis</h3>
+                    </div>
+                    <ul class="skill-bullet-list">
+                        <li class="skill-bullet-item">
+                            <span class="skill-bullet-dot">•</span>
+                            <div class="skill-item-content">
+                                <span class="skill-item-name">ANSYS Fluent (CFD)</span>
+                                <span class="skill-item-detail">Computational Fluid Dynamics, Boundary Conditions &
+                                    Solution Solvers</span>
+                            </div>
+                        </li>
+                        <li class="skill-bullet-item">
+                            <span class="skill-bullet-dot">•</span>
+                            <div class="skill-item-content">
+                                <span class="skill-item-name">Multiphase Flow Modeling</span>
+                                <span class="skill-item-detail">Transient 3-Phase Fluid Interactions (Air, Water, Engine
+                                    Oil)</span>
+                            </div>
+                        </li>
+                        <li class="skill-bullet-item">
+                            <span class="skill-bullet-dot">•</span>
+                            <div class="skill-item-content">
+                                <span class="skill-item-name">Computational Meshing</span>
+                                <span class="skill-item-detail">Geometry Discretization, Mesh Refinement & Quality
+                                    Verification</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 3. Data & Office Tools -->
+                <div class="glass-card skill-category-card">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                        <h3 class="skill-cat-title">Data & Office Tools</h3>
+                    </div>
+                    <ul class="skill-bullet-list">
+                        <li class="skill-bullet-item">
+                            <span class="skill-bullet-dot">•</span>
+                            <div class="skill-item-content">
+                                <span class="skill-item-name">Microsoft Excel</span>
+                                <span class="skill-item-detail">Data Computation, Cycle-Time Analysis & Technical
+                                    Worksheets</span>
+                            </div>
+                        </li>
+                        <li class="skill-bullet-item">
+                            <span class="skill-bullet-dot">•</span>
+                            <div class="skill-item-content">
+                                <span class="skill-item-name">Microsoft Power BI (Basic)</span>
+                                <span class="skill-item-detail">KPI Dashboard Visualization & Process Metrics</span>
+                            </div>
+                        </li>
+                        <li class="skill-bullet-item">
+                            <span class="skill-bullet-dot">•</span>
+                            <div class="skill-item-content">
+                                <span class="skill-item-name">MS PowerPoint & Word</span>
+                                <span class="skill-item-detail">Engineering Reports, Technical Documentation &
+                                    Presentations</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 4. Languages (Individual Bullet Points) -->
+                <div class="glass-card skill-category-card">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fa-solid fa-language"></i></div>
+                        <h3 class="skill-cat-title">Languages</h3>
+                    </div>
+                    <ul class="skill-bullet-list">
+                        <li class="skill-bullet-item">
+                            <span class="skill-bullet-dot">•</span>
+                            <div class="skill-item-content">
+                                <span class="skill-item-name">Telugu</span>
+                                <span class="skill-item-detail">Native / Mother Tongue Proficiency</span>
+                            </div>
+                        </li>
+                        <li class="skill-bullet-item">
+                            <span class="skill-bullet-dot">•</span>
+                            <div class="skill-item-content">
+                                <span class="skill-item-name">English</span>
+                                <span class="skill-item-detail">Fluent / Professional Working Proficiency</span>
+                            </div>
+                        </li>
+                        <li class="skill-bullet-item">
+                            <span class="skill-bullet-dot">•</span>
+                            <div class="skill-item-content">
+                                <span class="skill-item-name">Hindi</span>
+                                <span class="skill-item-detail">Working Professional Proficiency</span>
+                            </div>
+                        </li>
+                        <li class="skill-bullet-item">
+                            <span class="skill-bullet-dot">•</span>
+                            <div class="skill-item-content">
+                                <span class="skill-item-name">German</span>
+                                <span class="skill-item-detail">Basic / Elementary Language Foundations</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 5. Core Soft Skills & Competencies (Individual Bullet Points) -->
+                <div class="glass-card skill-category-card" style="grid-column: 1 / -1;">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                        <h3 class="skill-cat-title">Soft Skills & Professional Competencies</h3>
+                    </div>
+                    <ul class="skill-bullet-list"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+                        <li class="skill-bullet-item">
+                            <span class="skill-bullet-dot">•</span>
+                            <div class="skill-item-content">
+                                <span class="skill-item-name">Problem-Solving & Critical Thinking</span>
+                                <span class="skill-item-detail">Systematic root-cause identification & structured
+                                    evaluation</span>
+                            </div>
+                        </li>
+                        <li class="skill-bullet-item">
+                            <span class="skill-bullet-dot">•</span>
+                            <div class="skill-item-content">
+                                <span class="skill-item-name">Analytical Thinking</span>
+                                <span class="skill-item-detail">Quantitative assessment of simulation data & physical
+                                    principles</span>
+                            </div>
+                        </li>
+                        <li class="skill-bullet-item">
+                            <span class="skill-bullet-dot">•</span>
+                            <div class="skill-item-content">
+                                <span class="skill-item-name">Adaptability & Fast Learning</span>
+                                <span class="skill-item-detail">Quick onboarding to industrial workflows & software
+                                    environments</span>
+                            </div>
+                        </li>
+                        <li class="skill-bullet-item">
+                            <span class="skill-bullet-dot">•</span>
+                            <div class="skill-item-content">
+                                <span class="skill-item-name">Teamwork & Mentorship</span>
+                                <span class="skill-item-detail">Collaborative spirit & guiding junior teams through
+                                    fabrication</span>
+                            </div>
+                        </li>
+                        <li class="skill-bullet-item">
+                            <span class="skill-bullet-dot">•</span>
+                            <div class="skill-item-content">
+                                <span class="skill-item-name">Time Management</span>
+                                <span class="skill-item-detail">Milestone planning, prioritization & project schedule
+                                    adherence</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dedicated Achievements Section (With Cash Prizes) -->
+    <section id="achievements" style="background: rgba(13, 19, 34, 0.4);">
+        <div class="container">
+            <div class="header-center">
+                <div class="section-tag"
+                    style="background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3); color: #fbbf24;">
+                    <i class="fa-solid fa-trophy"></i> Recognitions
+                </div>
+                <h2 class="section-title">Honors & Major Achievements</h2>
+                <p class="section-subtitle">Recognized for excellence in research presentations, technical events, and
+                    hackathons.</p>
+            </div>
+
+            <div class="achievements-grid">
+                <!-- Researchers Day 1st Prize -->
+                <div class="glass-card achievement-card">
+                    <div class="trophy-badge"><i class="fa-solid fa-trophy"></i></div>
+                    <div class="prize-pill"><i class="fa-solid fa-indian-rupee-sign"></i> Cash Prize: ₹3,000</div>
+                    <h3 class="achieve-title">1st Prize – Researchers Day</h3>
+                    <p class="achieve-desc">
+                        Clinched <strong>1st Prize</strong> and an award of <strong>₹3,000 cash prize</strong> for
+                        outstanding technical research presentation and numerical fluid simulation findings.
+                    </p>
+                </div>
+
+                <!-- GEAR VIT 1st Prize -->
+                <div class="glass-card achievement-card">
+                    <div class="trophy-badge"><i class="fa-solid fa-award"></i></div>
+                    <div class="prize-pill"><i class="fa-solid fa-indian-rupee-sign"></i> Cash Prize: ₹3,000</div>
+                    <h3 class="achieve-title">1st Prize – GEAR VIT</h3>
+                    <p class="achieve-desc">
+                        Won <strong>1st Prize</strong> and a <strong>₹3,000 cash prize</strong> at GEAR VIT, the premier
+                        Mechanical Engineering Technical Event, demonstrating engineering design problem-solving.
+                    </p>
+                </div>
+
+                <!-- Smart India Hackathon 2nd Runner-up -->
+                <div class="glass-card achievement-card">
+                    <div class="trophy-badge"
+                        style="background: rgba(59, 130, 246, 0.15); border-color: rgba(59, 130, 246, 0.4); color: #60a5fa;">
+                        <i class="fa-solid fa-medal"></i>
+                    </div>
+                    <div class="prize-pill"
+                        style="background: rgba(59, 130, 246, 0.18); border-color: rgba(59, 130, 246, 0.35); color: #93c5fd;">
+                        <i class="fa-solid fa-indian-rupee-sign"></i> Cash Prize: ₹1,000
+                    </div>
+                    <h3 class="achieve-title">2nd Runner-Up – Smart India Hackathon</h3>
+                    <p class="achieve-desc">
+                        Secured <strong>2nd Runner-Up</strong> position with a <strong>₹1,000 cash prize</strong> at the
+                        College Level for developing automated engineering solution prototypes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dedicated Leadership & Activities Section -->
+    <section id="leadership">
+        <div class="container">
+            <div class="header-center">
+                <div class="section-tag"><i class="fa-solid fa-users"></i> Responsibility</div>
+                <h2 class="section-title">Leadership & Campus Activities</h2>
+                <p class="section-subtitle">Mentoring peers, orchestrating technical symposiums, and contributing to
+                    community welfare.</p>
+            </div>
+
+            <div class="leadership-grid">
+                <!-- Project Mentor -->
+                <div class="glass-card leadership-card">
+                    <div class="lead-icon-box"><i class="fa-solid fa-chalkboard-user"></i></div>
+                    <h3 class="lead-title">Project Mentor – Department Technical Event</h3>
+                    <p class="lead-desc">
+                        Mentored a first-year engineering team through the development, CAD modeling, and fabrication of
+                        an <strong>oil-leakage detection prototype</strong>, supporting them from concept development
+                        through physical implementation.
+                    </p>
+                </div>
+
+                <!-- Event Coordinator -->
+                <div class="glass-card leadership-card">
+                    <div class="lead-icon-box"><i class="fa-solid fa-calendar-check"></i></div>
+                    <h3 class="lead-title">Technical Event Coordinator</h3>
+                    <p class="lead-desc">
+                        Successfully planned and coordinated orientation programs, technical workshops, and engineering
+                        challenges for junior engineering students at Vishnu Institute of Technology.
+                    </p>
+                </div>
+
+                <!-- NSS Volunteer -->
+                <div class="glass-card leadership-card">
+                    <div class="lead-icon-box"
+                        style="background: rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.3); color: var(--accent-emerald);">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="lead-title">NSS Volunteer</h3>
+                    <p class="lead-desc">
+                        Active volunteer in the <strong>National Service Scheme (NSS)</strong> at Vishnu Institute of
+                        Technology, engaging in social responsibility initiatives, health awareness, and community
+                        service drives.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dedicated Certifications Section -->
+    <section id="certifications" style="background: rgba(13, 19, 34, 0.4);">
+        <div class="container">
+            <div class="header-center">
+                <div class="section-tag"
+                    style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3); color: var(--accent-emerald);">
+                    <i class="fa-solid fa-certificate"></i> Credentials
+                </div>
+                <h2 class="section-title">Certifications & Specialized Courses</h2>
+                <p class="section-subtitle">Verified national certifications enhancing engineering expertise.</p>
+            </div>
+
+            <div class="cert-grid">
+                <div class="glass-card cert-card">
+                    <div class="cert-icon-box"><i class="fa-solid fa-scroll"></i></div>
+                    <div>
+                        <h3 class="cert-title">NPTEL Certification: Introduction to Composites</h3>
+                        <div class="cert-issuer">National Programme on Technology Enhanced Learning (NPTEL) / IITs</div>
+                        <p class="cert-desc">
+                            Comprehensive certification covering fiber-reinforced composite mechanics, anisotropic
+                            elasticity, laminate theory, manufacturing processes, and structural failure criteria in
+                            modern aerospace and mechanical applications.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Connect Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="header-center">
+                <div class="section-tag"><i class="fa-solid fa-envelope-open-text"></i> Get In Touch</div>
+                <h2 class="section-title">Let's Connect & Build Together</h2>
+                <p class="section-subtitle">Open for full-time opportunities, graduate engineering roles, and technical
+                    collaborations.</p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Contact Info Cards -->
+                <div class="contact-info-panel">
+                    <!-- Email Card -->
+                    <div class="contact-card-item">
+                        <div class="contact-meta">
+                            <div class="contact-icon-wrap"><i class="fa-solid fa-envelope"></i></div>
+                            <div>
+                                <div class="contact-label">Email Address</div>
+                                <a href="mailto:23pa1a0352@vishnu.edu.in"
+                                    class="contact-value">23pa1a0352@vishnu.edu.in</a>
+                            </div>
+                        </div>
+                        <button class="copy-btn" onclick="copyText('23pa1a0352@vishnu.edu.in', 'Email')">
+                            <i class="fa-regular fa-copy"></i> Copy
+                        </button>
+                    </div>
+
+                    <!-- Phone Card -->
+                    <div class="contact-card-item">
+                        <div class="contact-meta">
+                            <div class="contact-icon-wrap"><i class="fa-solid fa-phone"></i></div>
+                            <div>
+                                <div class="contact-label">Phone Number</div>
+                                <a href="tel:+917075688699" class="contact-value">+91 7075688699</a>
+                            </div>
+                        </div>
+                        <button class="copy-btn" onclick="copyText('+917075688699', 'Phone Number')">
+                            <i class="fa-regular fa-copy"></i> Copy
+                        </button>
+                    </div>
+
+                    <!-- LinkedIn Card -->
+                    <div class="contact-card-item">
+                        <div class="contact-meta">
+                            <div class="contact-icon-wrap" style="color: #0ea5e9;"><i
+                                    class="fa-brands fa-linkedin-in"></i></div>
+                            <div>
+                                <div class="contact-label">Professional Network</div>
+                                <a href="https://www.linkedin.com/in/pulagam-hemanth-siva-reddy?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+                                    target="_blank" rel="noopener" class="contact-value">
+                                    pulagam-hemanth-siva-reddy
+                                </a>
+                            </div>
+                        </div>
+                        <a href="https://www.linkedin.com/in/pulagam-hemanth-siva-reddy?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+                            target="_blank" rel="noopener" class="copy-btn" style="text-decoration: none;">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Profile
+                        </a>
+                    </div>
+
+                    <!-- Location Card -->
+                    <div class="contact-card-item">
+                        <div class="contact-meta">
+                            <div class="contact-icon-wrap" style="color: var(--accent-emerald);"><i
+                                    class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <div class="contact-label">Location</div>
+                                <span class="contact-value">Bhimavaram / Penugonda, Andhra Pradesh</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Contact Form -->
+                <div class="glass-card contact-form">
+                    <form id="portfolio-contact-form">
+                        <div class="form-group">
+                            <label for="form-name" class="form-label">Your Name</label>
+                            <input type="text" id="form-name" class="form-control" placeholder="e.g. John Doe" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-email" class="form-label">Your Email</label>
+                            <input type="email" id="form-email" class="form-control" placeholder="e.g. john@example.com"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-subject" class="form-label">Subject</label>
+                            <input type="text" id="form-subject" class="form-control"
+                                placeholder="e.g. Job Opportunity / Collaboration" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-message" class="form-label">Message</label>
+                            <textarea id="form-message" class="form-control"
+                                placeholder="Describe your project, question, or opportunity..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fa-solid fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <a href="#" class="brand-container">
+                    <div class="brand-avatar-wrap">
+                        <img src="assets/images/profile.jpg" alt="Pulagam Hemanth Siva Reddy" class="brand-avatar">
+                    </div>
+                    <span class="brand-name">Pulagam Hemanth Siva Reddy</span>
+                </a>
+
+                <ul class="footer-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#leadership">Leadership</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+                <a href="#hero" class="back-to-top" aria-label="Back to Top">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 Pulagam Hemanth Siva Reddy. All rights reserved.</div>
+                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--primary-light);">
+                    Precision CAD & CFD Engineering Portfolio
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Interactive Modal: Project 1 - Agro-Machine CAD Gallery & Details -->
+    <div class="modal-overlay" id="project-agro-modal">
+        <div class="modal-container">
+            <button class="modal-close-btn" onclick="closeModal('project-agro-modal')">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="section-tag"><i class="fa-solid fa-tractor"></i> Project Case Study & CAD Gallery</div>
+            <h2
+                style="font-family: var(--font-heading); color: var(--text-main); font-size: 1.6rem; margin-bottom: 0.75rem;">
+                Autonomous Precision Agro-Machine for Planting & Weeding
+            </h2>
+
+            <!-- Interactive Multi-Image CAD & FEA Gallery -->
+            <div class="gallery-container">
+                <div class="gallery-main-frame">
+                    <img src="assets/images/agro-machine-main.png" alt="CATIA V5 3D Assembly" id="gallery-agro-main">
+                </div>
+                <div class="gallery-caption" id="gallery-agro-caption">
+                    <i class="fa-solid fa-circle-info"></i> CATIA V5 3D Isometric Assembly: Solar Canopy, Sapling Feeder
+                    Tray, Planting Arm & Weeding Blades
+                </div>
+
+                <!-- 4 Clickable Gallery Thumbnails -->
+                <div class="gallery-thumbnails">
+                    <div class="gallery-thumb active"
+                        onclick="setGalleryImage('gallery-agro-main', 'assets/images/agro-machine-main.png', 'gallery-agro-caption', 'CATIA V5 3D Isometric Assembly: Solar Canopy, Sapling Feeder Tray, Planting Arm & Weeding Blades', this)">
+                        <img src="assets/images/agro-machine-main.png" alt="Full CAD Assembly">
+                        <span class="gallery-thumb-label">3D Assembly</span>
+                    </div>
+
+                    <div class="gallery-thumb"
+                        onclick="setGalleryImage('gallery-agro-main', 'assets/images/agro-weeder-cad.jpg', 'gallery-agro-caption', 'Rotary Weeding Blades Unit & Drive Shaft: 4-Rotor Cutting Mechanism modeled in CATIA V5', this)">
+                        <img src="assets/images/agro-weeder-cad.jpg" alt="Weeder Blades CAD">
+                        <span class="gallery-thumb-label">Weeding Blades</span>
+                    </div>
+
+                    <div class="gallery-thumb"
+                        onclick="setGalleryImage('gallery-agro-main', 'assets/images/agro-top-view.jpg', 'gallery-agro-caption', 'Top Orthographic View: 4-Channel Sapling Feeder, Solar Power Pod & Wheel Alignment', this)">
+                        <img src="assets/images/agro-top-view.jpg" alt="Top View CAD">
+                        <span class="gallery-thumb-label">Top View CAD</span>
+                    </div>
+
+                    <div class="gallery-thumb"
+                        onclick="setGalleryImage('gallery-agro-main', 'assets/images/agro-ansys-structural.png', 'gallery-agro-caption', 'ANSYS 2024 R2 Static Structural Analysis: Wheel Safety Factor (Min F.O.S = 3.9932, Max = 15.0)', this)">
+                        <img src="assets/images/agro-ansys-structural.png" alt="ANSYS FEA Analysis">
+                        <span class="gallery-thumb-label">ANSYS FEA</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                <span class="tech-tag">CATIA V5</span>
+                <span class="tech-tag">ANSYS 2024 R2 Static Structural</span>
+                <span class="tech-tag">Solar-Powered Rover</span>
+                <span class="tech-tag">Precision Planting & Weeding</span>
+            </div>
+
+            <div
+                style="color: var(--text-muted); font-size: 0.975rem; line-height: 1.7; display: flex; flex-direction: column; gap: 1rem;">
+                <div>
+                    <strong style="color: var(--text-main);">Problem Statement:</strong> Traditional planting and manual
+                    weeding in row crops (such as rice and onion) are labor-intensive, time-consuming, and cause heavy
+                    soil compaction with conventional large tractors.
+                </div>
+
+                <div>
+                    <strong style="color: var(--text-main);">CAD Design & Engineering Architecture (CATIA V5):</strong>
+                    <ul
+                        style="padding-left: 1.5rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li><strong>Chassis & Power System:</strong> Modeled a lightweight triangular truss frame
+                            supporting rooftop photovoltaic solar panels for autonomous power replenishment.</li>
+                        <li><strong>Sapling Tray & Planting Arm:</strong> Designed a 4-channel gravitational sapling
+                            feeder tray with synchronized planting arms for uniform spacing.</li>
+                        <li><strong>Rotary Weeding Toolhead:</strong> Designed a 4-rotor shaft mechanism with
+                            high-tensile steel weeding blades that shred unwanted weeds without damaging adjacent crop
+                            roots.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <strong style="color: var(--text-main);">Structural FEA Validation (ANSYS 2024 R2):</strong>
+                    <p style="margin-top: 0.35rem;">
+                        Conducted Static Structural FEA simulations in <strong>ANSYS 2024 R2</strong> on the
+                        paddle-wheel load-bearing component. The result achieved a <strong>Minimum Safety Factor of
+                            3.9932</strong> (maximum 15.0), confirming high operational reliability and structural
+                        integrity across harsh agricultural terrain.
+                    </p>
+                </div>
+
+                <!-- Presentation PPT Callout Card -->
+                <div class="ppt-cta-card">
+                    <div>
+                        <div
+                            style="font-weight: 700; color: #fbbf24; font-size: 1.05rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fa-solid fa-file-powerpoint"></i> Agro-Machine Project Presentation (PPT)
+                        </div>
+                        <div style="font-size: 0.875rem; color: #cbd5e1; margin-top: 0.25rem;">
+                            Comprehensive slide deck covering design calculations, CAD bill-of-materials, and FEA
+                            simulation results.
+                        </div>
+                    </div>
+                    <button class="btn btn-amber btn-sm"
+                        onclick="showToast('You can attach your PPT file to this project!', 'ℹ')">
+                        <i class="fa-solid fa-download"></i> View PPT Slides
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Modal: Project 2 - CFD Multiphase Flow -->
+    <div class="modal-overlay" id="project-cfd-modal">
+        <div class="modal-container">
+            <button class="modal-close-btn" onclick="closeModal('project-cfd-modal')">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="modal-project-img">
+                <img src="assets/images/cfd-multiphase.svg" alt="Transient Three-Phase Pipe Flow Simulation">
+            </div>
+
+            <div class="section-tag"><i class="fa-solid fa-water"></i> Research Case Study</div>
+            <h2
+                style="font-family: var(--font-heading); color: var(--text-main); font-size: 1.6rem; margin-bottom: 1rem;">
+                Numerical Analysis of Transient Three-Phase Pipe Flow
+            </h2>
+
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                <span class="tech-tag">ANSYS Fluent</span>
+                <span class="tech-tag">Multiphase CFD</span>
+                <span class="tech-tag">Computational Meshing</span>
+                <span class="tech-tag">SRM University AP</span>
+                <span class="tech-tag">Stipend: ₹8,000</span>
+            </div>
+
+            <div
+                style="color: var(--text-muted); font-size: 0.975rem; line-height: 1.7; display: flex; flex-direction: column; gap: 1rem;">
+                <div>
+                    <strong style="color: var(--text-main);">Research Objective:</strong> Investigate complex
+                    hydrodynamic phenomena, bubble formation dynamics, and transient interphase interactions occurring
+                    between air, water, and engine oil inside pipe flows.
+                </div>
+
+                <div>
+                    <strong style="color: var(--text-main);">Methodology & Simulation Setup:</strong>
+                    <ul
+                        style="padding-left: 1.5rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li>Constructed 3D pipe fluid geometry and generated boundary-fitted computational grids in
+                            ANSYS Fluent.</li>
+                        <li>Configured transient multiphase Eulerian-Eulerian / VOF models with accurate fluid
+                            properties and viscosity ratios.</li>
+                        <li>Simulated unsteady turbulent bubble inception, phase interface breakup, and pressure drop
+                            variations.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <strong style="color: var(--text-main);">Research Impact:</strong> Provides valuable numerical data
+                    for multiphase oil-water-gas transmission pipelines, mitigating slug flow risks and phase separation
+                    issues. Awarded a research stipend of ₹8,000.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Modal: Project 3 - Oil-Leakage Detection Prototype -->
+    <div class="modal-overlay" id="project-leak-modal">
+        <div class="modal-container">
+            <button class="modal-close-btn" onclick="closeModal('project-leak-modal')">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="modal-project-img">
+                <img src="assets/images/oil-leak-detection.svg" alt="Oil Leakage Detection Prototype">
+            </div>
+
+            <div class="section-tag"><i class="fa-solid fa-oil-can"></i> Mentorship & Innovation</div>
+            <h2
+                style="font-family: var(--font-heading); color: var(--text-main); font-size: 1.6rem; margin-bottom: 1rem;">
+                Oil-Leakage Detection Prototype
+            </h2>
+
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                <span class="tech-tag">Rapid Prototyping</span>
+                <span class="tech-tag">Junior Mentorship</span>
+                <span class="tech-tag">Machinery Maintenance</span>
+            </div>
+
+            <div
+                style="color: var(--text-muted); font-size: 0.975rem; line-height: 1.7; display: flex; flex-direction: column; gap: 1rem;">
+                <div>
+                    <strong style="color: var(--text-main);">Project Scope:</strong> Prevent catastrophic machine
+                    failure and workplace hazards caused by unnoticed lubricating and hydraulic oil leakage.
+                </div>
+
+                <div>
+                    <strong style="color: var(--text-main);">Mentorship & Execution:</strong>
+                    <ul
+                        style="padding-left: 1.5rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li>Guided a team of first-year mechanical engineering students from conceptualization through
+                            physical assembly.</li>
+                        <li>Taught fabrication techniques, sensor housing packaging, and systematic testing.</li>
+                        <li>Successfully fabricated a working prototype presented at the departmental technical
+                            showcase.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Modal: Print & View Ready Resume -->
+    <div class="modal-overlay" id="resume-modal">
+        <div class="modal-container" style="max-width: 900px;">
+            <button class="modal-close-btn" onclick="closeModal('resume-modal')">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div
+                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <h2 style="font-family: var(--font-heading); color: var(--text-main); font-size: 1.5rem;">Resume
+                        Document Preview</h2>
+                    <span style="color: var(--text-muted); font-size: 0.85rem;">Pulagam Hemanth Siva Reddy – Mechanical
+                        Engineering</span>
+                </div>
+                <div style="display: flex; gap: 0.75rem;">
+                    <button class="btn btn-primary btn-sm" onclick="printResume()">
+                        <i class="fa-solid fa-print"></i> Print / Save as PDF
+                    </button>
+                </div>
+            </div>
+
+            <!-- Printable Resume Paper -->
+            <div class="resume-paper" id="resume-print-area">
+                <div class="resume-header">
+                    <h1
+                        style="font-family: var(--font-heading); font-size: 1.8rem; color: #ffffff; margin-bottom: 0.25rem;">
+                        Pulagam Hemanth Siva Reddy
+                    </h1>
+                    <div style="color: var(--primary-light); font-weight: 600; margin-bottom: 0.5rem;">
+                        Mechanical Engineering Student
+                    </div>
+                    <div
+                        style="font-family: var(--font-mono); font-size: 0.85rem; color: #cbd5e1; display: flex; flex-wrap: wrap; gap: 1rem;">
+                        <span><i class="fa-solid fa-phone"></i> +91 7075688699</span>
+                        <span><i class="fa-solid fa-envelope"></i> 23pa1a0352@vishnu.edu.in</span>
+                        <a href="https://www.linkedin.com/in/pulagam-hemanth-siva-reddy?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+                            target="_blank" style="color: #67e8f9; text-decoration: none;">
+                            <i class="fa-brands fa-linkedin"></i> LinkedIn Profile
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="resume-section-title">About</div>
+                    <p style="font-size: 0.925rem; line-height: 1.6; color: #cbd5e1;">
+                        Final-year Mechanical Engineering student with practical exposure to engineering design,
+                        manufacturing, simulation, and product development. Experienced in working on engineering
+                        problems from concept development and 3D modeling to simulation and practical implementation
+                        through academic projects and industrial internships. Strong analytical and problem-solving
+                        mindset with a keen interest in developing reliable, efficient, and manufacturable engineering
+                        solutions.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="resume-section-title">Education</div>
+                    <div style="margin-bottom: 0.75rem;">
+                        <div style="display: flex; justify-content: space-between; font-weight: 700; color: #ffffff;">
+                            <span>Bachelor of Technology in Mechanical Engineering</span>
+                            <span style="font-family: var(--font-mono); color: var(--primary-light);">2023 – 2027</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; color: #94a3b8; font-size: 0.9rem;">
+                            <span>Vishnu Institute of Technology, Bhimavaram</span>
+                            <span style="font-weight: 600; color: #ffffff;">CGPA: 8.22 / 10.0 (Up to 6th Sem)</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 0.75rem;">
+                        <div style="display: flex; justify-content: space-between; font-weight: 700; color: #ffffff;">
+                            <span>Intermediate (M.P.C)</span>
+                            <span style="font-family: var(--font-mono); color: var(--primary-light);">2021 – 2023</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; color: #94a3b8; font-size: 0.9rem;">
+                            <span>Sasi Junior College, Tanuku</span>
+                            <span style="font-weight: 600; color: #ffffff;">Percentage: 91.6%</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div style="display: flex; justify-content: space-between; font-weight: 700; color: #ffffff;">
+                            <span>Secondary School Certificate (SSC)</span>
+                            <span style="font-family: var(--font-mono); color: var(--primary-light);">2020 – 2021</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; color: #94a3b8; font-size: 0.9rem;">
+                            <span>Sri Chaitanya Techno School, Penugonda</span>
+                            <span style="font-weight: 600; color: #ffffff;">Percentage: 100%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="resume-section-title">Work Experience</div>
+                    <div style="margin-bottom: 1rem;">
+                        <div style="display: flex; justify-content: space-between; font-weight: 700; color: #ffffff;">
+                            <span>Research Intern — SRM University AP (Stipend: ₹8,000)</span>
+                            <span style="font-family: var(--font-mono); color: var(--primary-light);">Jun 2026 – Jul
+                                2026</span>
+                        </div>
+                        <ul
+                            style="padding-left: 1.25rem; font-size: 0.9rem; color: #cbd5e1; margin-top: 0.35rem; display: flex; flex-direction: column; gap: 0.25rem;">
+                            <li>Performed numerical analysis of transient three-phase pipe flow involving air, water,
+                                and engine oil using ANSYS Fluent.</li>
+                            <li>Created pipe geometry, generated computational mesh, and configured multiphase flow
+                                simulation.</li>
+                            <li>Analyzed bubble formation and phase interactions under transient flow conditions.</li>
+                            <li>Awarded research stipend of ₹8,000 for multiphase simulation research work.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div style="display: flex; justify-content: space-between; font-weight: 700; color: #ffffff;">
+                            <span>Manufacturing Engineering Intern — Yamaha Motor India Pvt. Ltd., Chennai</span>
+                            <span style="font-family: var(--font-mono); color: var(--primary-light);">Jun 2025</span>
+                        </div>
+                        <ul
+                            style="padding-left: 1.25rem; font-size: 0.9rem; color: #cbd5e1; margin-top: 0.35rem; display: flex; flex-direction: column; gap: 0.25rem;">
+                            <li>Conducted time-study analysis for proposed CKD manufacturing facility, recording cycle
+                                times across multiple workstations and identifying bottlenecks.</li>
+                            <li>Gained practical exposure to casting and assembly operations through shop-floor visits.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="resume-section-title">Key Projects</div>
+                    <div>
+                        <div style="font-weight: 700; color: #ffffff;">
+                            Autonomous Precision Agro-Machine for Planting & Weeding <span
+                                style="color: var(--primary-light); font-weight: normal;">(CAD & Automation)</span>
+                        </div>
+                        <ul
+                            style="padding-left: 1.25rem; font-size: 0.9rem; color: #cbd5e1; margin-top: 0.35rem; display: flex; flex-direction: column; gap: 0.25rem;">
+                            <li>Designed lightweight autonomous agricultural machine concept for precision planting and
+                                weeding of row crops such as rice and onion.</li>
+                            <li>Developed complete 3D assembly in CATIA V5 and evaluated frame under operational loading
+                                conditions.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="resume-section-title">Technical Skills & Toolset</div>
+                    <div style="font-size: 0.9rem; color: #cbd5e1; display: flex; flex-direction: column; gap: 0.6rem;">
+                        <div>
+                            <strong style="color: #ffffff;">CAD & Design:</strong>
+                            <ul
+                                style="padding-left: 1.25rem; margin-top: 0.2rem; display: flex; flex-direction: column; gap: 0.15rem;">
+                                <li>• CATIA V5 (Advanced 3D Modeling, Part Design, Assembly & Drafting)</li>
+                                <li>• AutoCAD (2D Technical Drafting, GD&T, Projections)</li>
+                                <li>• Fusion 360 (Parametric Solid Modeling & Prototyping)</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <strong style="color: #ffffff;">Simulation & Analysis:</strong>
+                            <ul
+                                style="padding-left: 1.25rem; margin-top: 0.2rem; display: flex; flex-direction: column; gap: 0.15rem;">
+                                <li>• ANSYS Fluent (Computational Fluid Dynamics - CFD)</li>
+                                <li>• Multiphase Flow Modeling (Transient 3-Phase Simulation)</li>
+                                <li>• Computational Meshing & Geometry Discretization</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <strong style="color: #ffffff;">Data & Office Tools:</strong>
+                            <ul
+                                style="padding-left: 1.25rem; margin-top: 0.2rem; display: flex; flex-direction: column; gap: 0.15rem;">
+                                <li>• Microsoft Excel (Data Modeling, Formulas & Time-Study Worksheets)</li>
+                                <li>• Microsoft Power BI (Basic KPI Dashboard Visualization)</li>
+                                <li>• Microsoft Word & PowerPoint (Technical Documentation & Presentation)</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <strong style="color: #ffffff;">Languages:</strong>
+                            <ul
+                                style="padding-left: 1.25rem; margin-top: 0.2rem; display: flex; flex-direction: column; gap: 0.15rem;">
+                                <li>• Telugu — Native Proficiency</li>
+                                <li>• English — Fluent / Professional Working Proficiency</li>
+                                <li>• Hindi — Working Professional Proficiency</li>
+                                <li>• German — Basic Elementary Foundations</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <strong style="color: #ffffff;">Soft Skills & Competencies:</strong>
+                            <ul
+                                style="padding-left: 1.25rem; margin-top: 0.2rem; display: flex; flex-direction: column; gap: 0.15rem;">
+                                <li>• Problem-Solving & Critical Thinking</li>
+                                <li>• Analytical Thinking & Simulation Data Interpretation</li>
+                                <li>• Adaptability & Fast Learning Curve</li>
+                                <li>• Teamwork, Collaboration & Junior Mentorship</li>
+                                <li>• Time Management & Project Milestone Planning</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="resume-section-title">Achievements & Honors</div>
+                    <ul
+                        style="padding-left: 1.25rem; font-size: 0.9rem; color: #cbd5e1; display: flex; flex-direction: column; gap: 0.25rem;">
+                        <li><strong>1st Prize – Researchers Day</strong> (Cash Prize: ₹3,000)</li>
+                        <li><strong>1st Prize – GEAR VIT</strong>, Mechanical Engineering Technical Event (Cash Prize:
+                            ₹3,000)</li>
+                        <li><strong>2nd Runner-Up – Smart India Hackathon</strong>, College Level (Cash Prize: ₹1,000)
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="resume-section-title">Leadership & Activities</div>
+                    <ul
+                        style="padding-left: 1.25rem; font-size: 0.9rem; color: #cbd5e1; display: flex; flex-direction: column; gap: 0.25rem;">
+                        <li><strong>Project Mentor – Department Technical Event:</strong> Guided a first-year team
+                            through the development and fabrication of an oil-leakage detection prototype.</li>
+                        <li><strong>Organized Events:</strong> Coordinated orientation and technical events for junior
+                            engineering students.</li>
+                        <li><strong>NSS Volunteer:</strong> Vishnu Institute of Technology.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="resume-section-title">Certifications</div>
+                    <ul style="padding-left: 1.25rem; font-size: 0.9rem; color: #cbd5e1;">
+                        <li><strong>NPTEL Certification:</strong> Introduction to Composites</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/background.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

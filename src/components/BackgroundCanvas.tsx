@@ -16,7 +16,7 @@ export default function BackgroundCanvas() {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    // Mouse coordinates
+    // Mouse coordinates (interpolated for smoothness)
     const mouse = { x: width / 2, y: height / 2, targetX: width / 2, targetY: height / 2 };
 
     // Handle resizing
@@ -45,11 +45,11 @@ export default function BackgroundCanvas() {
     }
 
     const gears: Gear[] = [
-      { x: 150, y: 250, radius: 80, teeth: 18, speed: 0.005, angle: 0, color: "rgba(6, 182, 212, 0.08)" },
-      { x: 278, y: 250, radius: 50, teeth: 12, speed: -0.008, angle: 0.1, color: "rgba(245, 158, 11, 0.06)" },
-      { x: 278, y: 154, radius: 46, teeth: 10, speed: 0.0087, angle: 0.3, color: "rgba(6, 182, 212, 0.06)" },
-      { x: width - 200, y: height - 200, radius: 100, teeth: 24, speed: -0.003, angle: 0, color: "rgba(6, 182, 212, 0.07)" },
-      { x: width - 338, y: height - 200, radius: 40, teeth: 10, speed: 0.0075, angle: 0.25, color: "rgba(245, 158, 11, 0.05)" }
+      { x: 150, y: 250, radius: 80, teeth: 18, speed: 0.005, angle: 0, color: "rgba(0, 0, 0, 0.03)" },
+      { x: 278, y: 250, radius: 50, teeth: 12, speed: -0.008, angle: 0.1, color: "rgba(0, 0, 0, 0.025)" },
+      { x: 278, y: 154, radius: 46, teeth: 10, speed: 0.0087, angle: 0.3, color: "rgba(0, 0, 0, 0.02)" },
+      { x: width - 200, y: height - 200, radius: 100, teeth: 24, speed: -0.003, angle: 0, color: "rgba(0, 0, 0, 0.03)" },
+      { x: width - 338, y: height - 200, radius: 40, teeth: 10, speed: 0.0075, angle: 0.25, color: "rgba(0, 0, 0, 0.02)" }
     ];
 
     // Floating particles (representing CFD flows)
@@ -62,7 +62,7 @@ export default function BackgroundCanvas() {
       alpha: number;
     }
 
-    const particles: Particle[] = Array.from({ length: 40 }, () => ({
+    const particles: Particle[] = Array.from({ length: 45 }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
       vx: (Math.random() - 0.2) * 0.8 + 0.3, // flow to the right
@@ -83,25 +83,52 @@ export default function BackgroundCanvas() {
       y2: height - 280,
     };
 
-    // Draw grid
+    // Draw 3D Perspective Grid (Dark/grey lines for light mode)
     const drawGrid = (ctx: CanvasRenderingContext2D) => {
-      ctx.strokeStyle = "rgba(255, 255, 255, 0.02)";
+      const centerX = width / 2 + (mouse.x - width / 2) * 0.05;
+      const horizonY = height * 0.35 + (mouse.y - height / 2) * 0.03;
+
+      ctx.save();
+      ctx.strokeStyle = "rgba(9, 9, 11, 0.025)"; // soft grey grid
       ctx.lineWidth = 1;
-      const gridSize = 60;
-      
-      for (let x = 0; x < width; x += gridSize) {
+
+      // Draw horizon line
+      ctx.beginPath();
+      ctx.moveTo(0, horizonY);
+      ctx.lineTo(width, horizonY);
+      ctx.stroke();
+
+      // Draw perspective longitudinal lines
+      const numLongLines = 36;
+      for (let i = 0; i <= numLongLines; i++) {
+        const fraction = i / numLongLines;
+        const bottomX = fraction * width * 2.5 - width * 0.75;
         ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, height);
+        ctx.moveTo(centerX, horizonY);
+        ctx.lineTo(bottomX, height);
         ctx.stroke();
       }
 
-      for (let y = 0; y < height; y += gridSize) {
+      // Draw perspective latitudinal lines
+      const numLatLines = 20;
+      for (let i = 0; i < numLatLines; i++) {
+        const t = i / numLatLines;
+        const y = horizonY + Math.pow(t, 2.5) * (height - horizonY);
         ctx.beginPath();
         ctx.moveTo(0, y);
         ctx.lineTo(width, y);
         ctx.stroke();
       }
+
+      // Radar circles
+      ctx.strokeStyle = "rgba(0, 0, 0, 0.015)";
+      for (let r = 100; r < Math.max(width, height); r += 160) {
+        ctx.beginPath();
+        ctx.arc(centerX, horizonY, r, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+
+      ctx.restore();
     };
 
     // Draw gear
@@ -115,10 +142,9 @@ export default function BackgroundCanvas() {
       const outerRadius = gear.radius + toothDepth;
 
       ctx.fillStyle = gear.color;
-      ctx.strokeStyle = gear.color.replace("0.0", "0.2");
-      ctx.lineWidth = 1.5;
+      ctx.strokeStyle = gear.color.replace("0.0", "0.15");
+      ctx.lineWidth = 1.2;
 
-      // Draw gear body
       ctx.beginPath();
       for (let i = 0; i < gear.teeth; i++) {
         const angle = (Math.PI * 2 / gear.teeth) * i;
@@ -133,17 +159,14 @@ export default function BackgroundCanvas() {
       ctx.fill();
       ctx.stroke();
 
-      // Outer rim ring
       ctx.beginPath();
       ctx.arc(0, 0, innerRadius, 0, Math.PI * 2);
       ctx.stroke();
 
-      // Center hole
       ctx.beginPath();
       ctx.arc(0, 0, 16, 0, Math.PI * 2);
       ctx.stroke();
 
-      // Spokes
       const spokes = 4;
       for (let i = 0; i < spokes; i++) {
         const sAngle = (Math.PI * 2 / spokes) * i;
@@ -156,25 +179,21 @@ export default function BackgroundCanvas() {
       ctx.restore();
     };
 
-    // Draw structural linkage beams
     const drawLinkages = (ctx: CanvasRenderingContext2D) => {
-      ctx.strokeStyle = "rgba(6, 182, 212, 0.06)";
-      ctx.lineWidth = 4;
+      ctx.strokeStyle = "rgba(0, 0, 0, 0.02)";
+      ctx.lineWidth = 3;
       
-      // Connect Gear 1 and Gear 2
       ctx.beginPath();
       ctx.moveTo(gears[0].x, gears[0].y);
       ctx.lineTo(gears[1].x, gears[1].y);
       ctx.stroke();
 
-      // Connect Gear 2 and Gear 3
       ctx.beginPath();
       ctx.moveTo(gears[1].x, gears[1].y);
       ctx.lineTo(gears[2].x, gears[2].y);
       ctx.stroke();
 
-      // Draw pivot nodes at centers
-      ctx.fillStyle = "rgba(6, 182, 212, 0.15)";
+      ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
       gears.forEach(g => {
         ctx.beginPath();
         ctx.arc(g.x, g.y, 4, 0, Math.PI * 2);
@@ -182,12 +201,10 @@ export default function BackgroundCanvas() {
       });
     };
 
-    // Inverse Kinematics Solver for 2-segment robotic arm
     const solveIK = () => {
       arm.baseX = width * 0.35;
       arm.baseY = height;
 
-      // Ease the arm toward the mouse pointer
       mouse.x += (mouse.targetX - mouse.x) * 0.08;
       mouse.y += (mouse.targetY - mouse.y) * 0.08;
 
@@ -195,7 +212,6 @@ export default function BackgroundCanvas() {
       const dy = mouse.y - arm.baseY;
       const dist = Math.sqrt(dx * dx + dy * dy);
 
-      // Clamp distance to avoid hyperextension
       const maxLength = arm.l1 + arm.l2 - 5;
       const targetX = dist > maxLength ? arm.baseX + (dx / dist) * maxLength : mouse.x;
       const targetY = dist > maxLength ? arm.baseY + (dy / dist) * maxLength : mouse.y;
@@ -204,20 +220,16 @@ export default function BackgroundCanvas() {
       const finalDy = targetY - arm.baseY;
       const finalDist = Math.sqrt(finalDx * finalDx + finalDy * finalDy);
 
-      // Angle from base to target
       const alpha = Math.atan2(finalDy, finalDx);
 
-      // Law of Cosines to solve interior angles
       const cosAngle2 = (finalDist * finalDist - arm.l1 * arm.l1 - arm.l2 * arm.l2) / (2 * arm.l1 * arm.l2);
-      const angle2 = Math.acos(Math.max(-1, Math.min(1, cosAngle2))); // Elbow angle
+      const angle2 = Math.acos(Math.max(-1, Math.min(1, cosAngle2)));
 
       const cosAngle1 = (arm.l1 * arm.l1 + finalDist * finalDist - arm.l2 * arm.l2) / (2 * arm.l1 * finalDist);
-      const angle1 = Math.acos(Math.max(-1, Math.min(1, cosAngle1))); // Shoulder angle adjustment
+      const angle1 = Math.acos(Math.max(-1, Math.min(1, cosAngle1)));
 
-      // Absolute joint angles
       const theta1 = alpha - angle1;
       
-      // Calculate joint positions
       arm.x1 = arm.baseX + Math.cos(theta1) * arm.l1;
       arm.y1 = arm.baseY + Math.sin(theta1) * arm.l1;
       
@@ -225,64 +237,53 @@ export default function BackgroundCanvas() {
       arm.y2 = targetY;
     };
 
-    // Draw robotic arm
     const drawRoboticArm = (ctx: CanvasRenderingContext2D) => {
       solveIK();
 
       ctx.save();
       
-      // Draw grid range boundaries
-      ctx.strokeStyle = "rgba(6, 182, 212, 0.02)";
+      ctx.strokeStyle = "rgba(0, 0, 0, 0.01)";
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       ctx.arc(arm.baseX, arm.baseY, arm.l1 + arm.l2, 0, Math.PI * 2);
       ctx.stroke();
 
-      // Shoulder to elbow (Segment 1)
-      ctx.strokeStyle = "rgba(6, 182, 212, 0.12)";
+      // Shoulder to elbow
+      ctx.strokeStyle = "rgba(0, 0, 0, 0.04)";
       ctx.lineWidth = 6;
       ctx.beginPath();
       ctx.moveTo(arm.baseX, arm.baseY);
       ctx.lineTo(arm.x1, arm.y1);
       ctx.stroke();
 
-      // Elbow to wrist (Segment 2)
-      ctx.strokeStyle = "rgba(245, 158, 11, 0.12)";
+      // Elbow to wrist
+      ctx.strokeStyle = "rgba(0, 0, 0, 0.05)";
       ctx.lineWidth = 4;
       ctx.beginPath();
       ctx.moveTo(arm.x1, arm.y1);
       ctx.lineTo(arm.x2, arm.y2);
       ctx.stroke();
 
-      // Draw Joints
-      ctx.fillStyle = "rgba(6, 182, 212, 0.3)";
-      ctx.strokeStyle = "rgba(6, 182, 212, 0.6)";
+      ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
+      ctx.strokeStyle = "rgba(0, 0, 0, 0.2)";
       ctx.lineWidth = 2;
 
-      // Base joint
       ctx.beginPath();
       ctx.arc(arm.baseX, arm.baseY, 12, 0, Math.PI * 2);
       ctx.fill();
       ctx.stroke();
 
-      // Elbow joint
-      ctx.fillStyle = "rgba(245, 158, 11, 0.3)";
-      ctx.strokeStyle = "rgba(245, 158, 11, 0.6)";
       ctx.beginPath();
       ctx.arc(arm.x1, arm.y1, 8, 0, Math.PI * 2);
       ctx.fill();
       ctx.stroke();
 
-      // Tool tip (Wrist/Effector)
-      ctx.fillStyle = "rgba(6, 182, 212, 0.4)";
-      ctx.strokeStyle = "rgba(6, 182, 212, 0.8)";
       ctx.beginPath();
       ctx.arc(arm.x2, arm.y2, 5, 0, Math.PI * 2);
       ctx.fill();
       ctx.stroke();
 
-      // Laser guide line to pointer
-      ctx.strokeStyle = "rgba(6, 182, 212, 0.15)";
+      ctx.strokeStyle = "rgba(0, 0, 0, 0.08)";
       ctx.lineWidth = 1;
       ctx.setLineDash([4, 4]);
       ctx.beginPath();
@@ -294,15 +295,12 @@ export default function BackgroundCanvas() {
       ctx.restore();
     };
 
-    // Draw floating particles (representing CFD flow)
     const drawParticles = (ctx: CanvasRenderingContext2D) => {
       ctx.save();
       particles.forEach(p => {
-        // Flow update
         p.x += p.vx;
         p.y += p.vy;
 
-        // Wrap around borders
         if (p.x > width) {
           p.x = 0;
           p.y = Math.random() * height;
@@ -311,19 +309,17 @@ export default function BackgroundCanvas() {
           p.vy = -p.vy;
         }
 
-        // Draw particle
-        ctx.fillStyle = `rgba(103, 232, 249, ${p.alpha})`;
+        ctx.fillStyle = `rgba(0, 0, 0, ${p.alpha * 0.25})`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
 
-        // Trace vectors for close particles (Mesh effect)
         particles.forEach(other => {
           const dx = p.x - other.x;
           const dy = p.y - other.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < 80) {
-            ctx.strokeStyle = `rgba(6, 182, 212, ${(1 - dist/80) * 0.05})`;
+            ctx.strokeStyle = `rgba(0, 0, 0, ${(1 - dist/80) * 0.02})`;
             ctx.lineWidth = 0.5;
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
@@ -335,19 +331,14 @@ export default function BackgroundCanvas() {
       ctx.restore();
     };
 
-    // Main animation loop
     const animate = () => {
-      ctx.fillStyle = "rgb(6, 9, 19)";
-      ctx.fillRect(0, 0, width, height);
+      ctx.clearRect(0, 0, width, height);
 
-      // Draw background systems
       drawGrid(ctx);
       
-      // Update and draw gears
       gears.forEach(g => {
         g.angle += g.speed;
         
-        // Reposition gears if window dimensions change
         if (g.x > width && g.x < width + 500) {
           g.x = width - (window.innerWidth - g.x);
         }
@@ -365,10 +356,8 @@ export default function BackgroundCanvas() {
       animationId = requestAnimationFrame(animate);
     };
 
-    // Begin loop
     animate();
 
-    // Cleanups
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);

@@ -64,19 +64,20 @@ export default function Contact({ showToast }: ContactProps) {
   };
 
   return (
-    <section id="contact">
+    <section id="contact" className="section-dark">
+      <div className="vertical-label-container">
+        <span className="vertical-label">CONTACT // INQUIRY</span>
+      </div>
+
       <div className="container">
         <div className="header-center">
           <div className="section-tag">
-            <MessageSquare size={14} /> Get In Touch
+            <MessageSquare size={14} /> GET IN TOUCH
           </div>
-          <h2 className="section-title">Let's Connect & Build Together</h2>
-          <p className="section-subtitle">
-            Open for full-time opportunities, graduate engineering roles, and technical collaborations.
-          </p>
+          <h2 className="display-medium">Have a Project in Mind? Let's Talk!</h2>
         </div>
 
-        <div className="contact-grid">
+        <div className="contact-grid" style={{ marginLeft: "8.33%" }}>
           {/* Left Info Column */}
           <div className="contact-info-panel">
             {/* Email item */}
@@ -114,8 +115,8 @@ export default function Contact({ showToast }: ContactProps) {
             {/* LinkedIn item */}
             <div className="contact-card-item">
               <div className="contact-meta">
-                <div className="contact-icon-wrap" style={{ color: "#0ea5e9" }}>
-                  <i className="fa-brands fa-linkedin-in" style={{ fontSize: "18px" }}></i>
+                <div className="contact-icon-wrap">
+                  <i className="fa-brands fa-linkedin-in" style={{ fontSize: "16px" }}></i>
                 </div>
                 <div>
                   <div className="contact-label">Professional Network</div>
@@ -143,19 +144,19 @@ export default function Contact({ showToast }: ContactProps) {
             {/* Location item */}
             <div className="contact-card-item">
               <div className="contact-meta">
-                <div className="contact-icon-wrap" style={{ color: "var(--accent-emerald)" }}>
+                <div className="contact-icon-wrap">
                   <MapPin size={18} />
                 </div>
                 <div>
                   <div className="contact-label">Location</div>
-                  <span className="contact-value">Bhimavaram / Penugonda, Andhra Pradesh</span>
+                  <span className="contact-value">Andhra Pradesh, India</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Right Form Column */}
-          <div className="glass-card contact-form">
+          <div className="contact-form">
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="form-name" className="form-label">Your Name</label>
@@ -208,8 +209,8 @@ export default function Contact({ showToast }: ContactProps) {
                 />
               </div>
 
-              <button type="submit" className="btn btn-primary" style={{ width: "100%" }}>
-                <Send size={16} /> Send Message
+              <button type="submit" className="btn-bracket" style={{ width: "100%", justifyContent: "center" }}>
+                <span className="bracket">[</span> SEND MESSAGE <span className="bracket">]</span>
               </button>
             </form>
           </div>

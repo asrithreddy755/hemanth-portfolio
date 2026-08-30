@@ -62,14 +62,8 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
         <div className="container nav-wrapper">
           {/* Logo & Brand */}
           <a href="#hero" className="brand-container">
-            <div className="brand-avatar-wrap">
-              <img
-                src="/assets/images/profile.jpg"
-                alt="Pulagam Hemanth Siva Reddy"
-                className="brand-avatar"
-              />
-            </div>
-            <span className="brand-name">Pulagam Hemanth Siva Reddy</span>
+            <span className="brand-logo-text">HEMANTH.</span>
+            <span className="brand-coords-badge">16.54° N</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -80,20 +74,25 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
                   href={`#${item.id}`}
                   className={`nav-link ${activeSection === item.id ? "active" : ""}`}
                 >
-                  {item.label}
+                  {item.label.toUpperCase()}
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href="#contact"
+                className={`nav-link ${activeSection === "contact" ? "active" : ""}`}
+              >
+                CONTACT
+              </a>
+            </li>
           </ul>
 
           {/* Action CTA Buttons */}
           <div className="nav-actions">
-            <button className="btn btn-outline btn-sm" onClick={onOpenResume}>
-              <FileText size={15} style={{ marginRight: "0.25rem" }} /> Resume
+            <button className="btn-bracket" onClick={onOpenResume}>
+              <span className="bracket">[</span> RESUME <span className="bracket">]</span>
             </button>
-            <a href="#contact" className="btn btn-primary btn-sm">
-              <Send size={15} style={{ marginRight: "0.25rem" }} /> Contact
-            </a>
           </div>
 
           {/* Mobile Hamburguer Toggle */}
@@ -102,7 +101,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
             onClick={() => setIsDrawerOpen(true)}
             aria-label="Open navigation menu"
           >
-            <Menu />
+            <Menu size={20} />
           </button>
         </div>
       </header>
@@ -118,6 +117,10 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
           <X size={20} />
         </button>
 
+        <div className="mobile-drawer-brand">
+          <span>HEMANTH.</span>
+        </div>
+
         {navItems.map((item) => (
           <a
             key={item.id}
@@ -125,7 +128,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
             className="mobile-nav-link"
             onClick={() => setIsDrawerOpen(false)}
           >
-            {item.label}
+            {item.label.toUpperCase()}
           </a>
         ))}
         <a
@@ -133,28 +136,20 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
           className="mobile-nav-link"
           onClick={() => setIsDrawerOpen(false)}
         >
-          Contact
+          CONTACT
         </a>
 
-        <div style={{ display: "flex", gap: "1rem", marginTop: "2rem" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginTop: "3rem" }}>
           <button
-            className="btn btn-outline"
-            style={{ flex: 1 }}
+            className="btn-bracket"
+            style={{ width: "100%", justifyContent: "center", display: "flex" }}
             onClick={() => {
               setIsDrawerOpen(false);
               onOpenResume();
             }}
           >
-            <FileText size={16} /> Resume
+            <span className="bracket">[</span> RESUME <span className="bracket">]</span>
           </button>
-          <a
-            href="#contact"
-            className="btn btn-primary"
-            style={{ flex: 1 }}
-            onClick={() => setIsDrawerOpen(false)}
-          >
-            <Send size={16} /> Contact
-          </a>
         </div>
       </div>
     </>

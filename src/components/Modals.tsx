@@ -11,6 +11,7 @@ interface ModalsProps {
 
 export default function Modals({ activeModal, onClose, showToast }: ModalsProps) {
   const [agroSlide, setAgroSlide] = useState(0);
+  const [cfdSlide, setCfdSlide] = useState(0);
 
   // Close modal on ESC key
   useEffect(() => {
@@ -37,24 +38,68 @@ export default function Modals({ activeModal, onClose, showToast }: ModalsProps)
   // Agro-machine Slides
   const agroSlides = [
     {
-      url: "/assets/images/agro-machine-main.png",
-      label: "3D Assembly",
+      url: "/Autonomous Precision Agro-Machine for Planting & Weeding/WHOLE MACHINE.png",
+      label: "3D CAD",
       caption: "CATIA V5 3D Isometric Assembly: Solar Canopy, Sapling Feeder Tray, Planting Arm & Weeding Blades"
     },
     {
-      url: "/assets/images/agro-weeder-cad.jpg",
-      label: "Weeding Blades",
-      caption: "Rotary Weeding Blades Unit & Drive Shaft: 4-Rotor Cutting Mechanism modeled in CATIA V5"
+      url: "/Autonomous Precision Agro-Machine for Planting & Weeding/SIMULATION OF WHEEL.png",
+      label: "FEA Loading",
+      caption: "ANSYS Static Structural Finite Element Analysis: Paddle-wheel loading stress contour (Safety Factor Min = 3.99)"
     },
     {
-      url: "/assets/images/agro-top-view.jpg",
-      label: "Top View CAD",
-      caption: "Top Orthographic View: 4-Channel Sapling Feeder, Solar Power Pod & Wheel Alignment"
+      url: "/Autonomous Precision Agro-Machine for Planting & Weeding/BROCHURE.jpg",
+      label: "Specs Brochure",
+      caption: "Project showcase presentation poster, technical parameters, and design specifications"
     },
     {
-      url: "/assets/images/agro-ansys-structural.png",
-      label: "ANSYS FEA",
-      caption: "ANSYS 2024 R2 Static Structural Analysis: Wheel Safety Factor (Min F.O.S = 1.25, Max = 15.0)"
+      url: "/Autonomous Precision Agro-Machine for Planting & Weeding/3.jpeg",
+      label: "Fabrication",
+      caption: "Chassis fabrication, structural joint assembly, and physical drive shaft mounting"
+    },
+    {
+      url: "/Autonomous Precision Agro-Machine for Planting & Weeding/4.jpeg",
+      label: "Testing",
+      caption: "Autonomous solar charging tests and planetary weeding trials in soil terrain"
+    }
+  ];
+
+  // CFD Slides
+  const cfdSlides = [
+    {
+      url: "/Analysis of transient three-phase pipe flow (SRM)/srm2.jpeg",
+      label: "Flow Contour",
+      caption: "Eulerian Multiphase Flow simulation: Unsteady transient air-water-oil phase boundary velocity contour"
+    },
+    {
+      url: "/Analysis of transient three-phase pipe flow (SRM)/MESHING.jpg",
+      label: "Domain Mesh",
+      caption: "Computational mesh discretization grid: Hexahedral elements for structural pipe fluid volume"
+    },
+    {
+      url: "/Analysis of transient three-phase pipe flow (SRM)/MESHING OF CURVED PIPE.jpg",
+      label: "Elbow Mesh",
+      caption: "Close-up mesh grid detail at curved pipe elbow, refined to capture high velocity gradients"
+    },
+    {
+      url: "/Analysis of transient three-phase pipe flow (SRM)/INFLATION LAYERS.jpg",
+      label: "Inflation",
+      caption: "Boundary-fitted inflation layers generated at the pipe walls to capture shear stress gradients"
+    },
+    {
+      url: "/Analysis of transient three-phase pipe flow (SRM)/RESIDUAL GRAPH.jpg",
+      label: "Residual plot",
+      caption: "ANSYS Fluent solver residual convergence histories verifying mathematical precision"
+    },
+    {
+      url: "/Analysis of transient three-phase pipe flow (SRM)/srm 7.jpeg",
+      label: "Phase Dist 1",
+      caption: "Transient fluid interphase distribution contour detailing gas core inception"
+    },
+    {
+      url: "/Analysis of transient three-phase pipe flow (SRM)/srm 8.jpeg",
+      label: "Phase Dist 2",
+      caption: "Transient fluid interphase distribution downstream, analyzing liquid holdup profiles"
     }
   ];
 
@@ -88,7 +133,7 @@ export default function Modals({ activeModal, onClose, showToast }: ModalsProps)
               </div>
 
               {/* Thumbnails */}
-              <div className="gallery-thumbnails">
+              <div className="gallery-thumbnails" style={{ gridTemplateColumns: "repeat(5, 1fr)" }}>
                 {agroSlides.map((slide, idx) => (
                   <div
                     key={idx}
@@ -158,34 +203,33 @@ export default function Modals({ activeModal, onClose, showToast }: ModalsProps)
         {/* ========================================================================= */}
         {activeModal === "project-cfd" && (
           <div>
-            {/* Custom Inline SVG representing CFD pipe simulation */}
-            <div className="modal-project-img">
-              <svg viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto", display: "block" }}>
-                <rect width="600" height="200" fill="#040713" />
-                <rect x="40" y="40" width="520" height="120" rx="4" fill="rgba(6, 182, 212, 0.05)" stroke="rgba(6, 182, 212, 0.3)" strokeWidth="2" />
-                
-                {/* Velocity heatmap contours */}
-                <path d="M41 41 C 150 70, 250 50, 559 41 L 559 159 C 450 140, 250 150, 41 159 Z" fill="rgba(6, 182, 212, 0.1)" />
-                <path d="M41 80 C 150 100, 250 90, 559 80 L 559 120 C 450 110, 250 115, 41 120 Z" fill="rgba(245, 158, 11, 0.15)" />
-                
-                {/* Bubble dynamics vectors */}
-                <circle cx="150" cy="100" r="14" fill="rgba(255, 255, 255, 0.3)" stroke="rgba(255, 255, 255, 0.7)" strokeWidth="1" />
-                <line x1="150" y1="100" x2="180" y2="105" stroke="#fff" strokeWidth="1.5" />
-                <path d="M176 101 L 180 105 L 175 109" stroke="#fff" strokeWidth="1.5" />
+            {/* Slide Gallery */}
+            <div className="gallery-container">
+              <div className="gallery-main-frame">
+                <img src={cfdSlides[cfdSlide].url} alt={cfdSlides[cfdSlide].label} />
+              </div>
+              <div className="gallery-caption">
+                <Info size={14} style={{ display: "inline-block", verticalAlign: "middle", marginRight: "0.4rem" }} />
+                <span style={{ verticalAlign: "middle" }}>{cfdSlides[cfdSlide].caption}</span>
+              </div>
 
-                <circle cx="280" cy="90" r="10" fill="rgba(255, 255, 255, 0.3)" stroke="rgba(255, 255, 255, 0.7)" strokeWidth="1" />
-                <line x1="280" y1="90" x2="305" y2="92" stroke="#fff" strokeWidth="1.5" />
-                
-                <circle cx="420" cy="110" r="16" fill="rgba(255, 255, 255, 0.3)" stroke="rgba(255, 255, 255, 0.7)" strokeWidth="1" />
-                <line x1="420" y1="110" x2="455" y2="105" stroke="#fff" strokeWidth="1.5" />
-
-                <text x="15" y="25" fill="var(--text-dim)" fontSize="10" fontFamily="var(--font-mono)">ANSYS FLUENT Eulerian Multiphase Domain Mesh</text>
-                <text x="50" y="110" fill="var(--primary)" fontSize="14" fontWeight="bold">FLOW</text>
-              </svg>
+              {/* Thumbnails */}
+              <div className="gallery-thumbnails" style={{ gridTemplateColumns: "repeat(7, 1fr)" }}>
+                {cfdSlides.map((slide, idx) => (
+                  <div
+                    key={idx}
+                    className={`gallery-thumb ${cfdSlide === idx ? "active" : ""}`}
+                    onClick={() => setCfdSlide(idx)}
+                  >
+                    <img src={slide.url} alt={slide.label} />
+                    <span className="gallery-thumb-label">{slide.label}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="section-tag">
-              <Wind size={14} /> Research Case Study
+              <Wind size={14} /> Research Case Study & Simulation Gallery
             </div>
             <h2 style={{ fontFamily: "var(--font-heading)", color: "var(--text-main)", fontSize: "1.6rem", marginBottom: "1rem" }}>
               Numerical Analysis of Transient Three-Phase Pipe Flow

@@ -35,21 +35,22 @@ export default function Education() {
   ];
 
   return (
-    <section id="education" style={{ background: "rgba(13, 19, 34, 0.2)" }}>
+    <section id="education" className="section-light">
+      <div className="vertical-label-container">
+        <span className="vertical-label">EDUCATION // ACADEMIC</span>
+      </div>
+
       <div className="container">
         <div className="header-center">
           <div className="section-tag">
-            <GraduationCap size={14} /> Academic Journey
+            <GraduationCap size={14} /> ACADEMIC JOURNEY
           </div>
-          <h2 className="section-title">Education & Academic Background</h2>
-          <p className="section-subtitle">
-            Consistent academic excellence across school, intermediate, and undergraduate engineering studies.
-          </p>
+          <h2 className="display-medium">Education & Background.</h2>
         </div>
 
-        <div className="education-grid">
+        <div className="education-grid" style={{ marginLeft: "8.33%" }}>
           {educationData.map((edu, idx) => (
-            <div key={idx} className="glass-card edu-card">
+            <div key={idx} className="edu-card">
               <div>
                 <div className="edu-header">
                   <div className="edu-icon-badge">{edu.icon}</div>
@@ -58,15 +59,16 @@ export default function Education() {
                 <h3 className="edu-degree">{edu.degree}</h3>
                 <div
                   style={{
-                    color: "var(--primary-light)",
-                    fontWeight: 600,
-                    fontSize: "0.95rem",
-                    marginBottom: "0.25rem",
+                    color: "var(--text-theme-muted)",
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "0.8rem",
+                    textTransform: "uppercase",
+                    marginBottom: "0.5rem",
                   }}
                 >
                   {edu.field}
                 </div>
-                <p className="edu-institution">{edu.institution}</p>
+                <p className="edu-institution" style={{ color: "var(--text-theme-muted)", fontSize: "0.95rem" }}>{edu.institution}</p>
               </div>
               <div className="edu-score-box">
                 <span className="edu-score-label">{edu.scoreLabel}</span>

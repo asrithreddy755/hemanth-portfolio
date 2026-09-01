@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from "react";
 import BackgroundCanvas from "@/components/BackgroundCanvas";
+import DroidRobot from "@/components/DroidRobot";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -53,29 +54,32 @@ export default function Home() {
       {/* Dynamic Mechanical Background canvas */}
       <BackgroundCanvas />
 
+      {/* Interactive Droid Robot in Bottom-Right Corner */}
+      <DroidRobot />
+
       {/* Navigation Header */}
       <Navbar onOpenResume={() => handleOpenModal("resume")} />
 
       {/* Main Content Sections */}
       <main>
         <Hero onOpenResume={() => handleOpenModal("resume")} />
-        
+
         <About />
-        
+
         <Education />
-        
+
         <Experience />
-        
+
         <Projects onOpenModal={handleOpenModal} />
-        
+
         <Skills />
-        
+
         <Achievements />
-        
+
         <Leadership />
-        
+
         <Certifications />
-        
+
         <Contact showToast={showToast} />
       </main>
 
@@ -83,10 +87,10 @@ export default function Home() {
       <Footer />
 
       {/* Modals Management (Agro-gallery, CFD flow, Oil detector, Resume print) */}
-      <Modals 
-        activeModal={activeModal} 
-        onClose={handleCloseModal} 
-        showToast={showToast} 
+      <Modals
+        activeModal={activeModal}
+        onClose={handleCloseModal}
+        showToast={showToast}
       />
 
       {/* Toast Overlay Container */}

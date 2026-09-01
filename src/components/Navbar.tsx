@@ -78,22 +78,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
                 </a>
               </li>
             ))}
-            <li>
-              <a
-                href="#contact"
-                className={`nav-link ${activeSection === "contact" ? "active" : ""}`}
-              >
-                CONTACT
-              </a>
-            </li>
           </ul>
-
-          {/* Action CTA Buttons */}
-          <div className="nav-actions">
-            <button className="btn-bracket" onClick={onOpenResume}>
-              <span className="bracket">[</span> RESUME <span className="bracket">]</span>
-            </button>
-          </div>
 
           {/* Mobile Hamburguer Toggle */}
           <button
@@ -131,26 +116,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
             {item.label.toUpperCase()}
           </a>
         ))}
-        <a
-          href="#contact"
-          className="mobile-nav-link"
-          onClick={() => setIsDrawerOpen(false)}
-        >
-          CONTACT
-        </a>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginTop: "3rem" }}>
-          <button
-            className="btn-bracket"
-            style={{ width: "100%", justifyContent: "center", display: "flex" }}
-            onClick={() => {
-              setIsDrawerOpen(false);
-              onOpenResume();
-            }}
-          >
-            <span className="bracket">[</span> RESUME <span className="bracket">]</span>
-          </button>
-        </div>
       </div>
     </>
   );

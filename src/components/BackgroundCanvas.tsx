@@ -23,6 +23,7 @@ export default function BackgroundCanvas() {
     const handleResize = () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
+      updateGearPositions();
     };
     window.addEventListener("resize", handleResize);
 
@@ -45,12 +46,21 @@ export default function BackgroundCanvas() {
     }
 
     const gears: Gear[] = [
-      { x: 150, y: 250, radius: 80, teeth: 18, speed: 0.005, angle: 0, color: "rgba(0, 0, 0, 0.03)" },
-      { x: 278, y: 250, radius: 50, teeth: 12, speed: -0.008, angle: 0.1, color: "rgba(0, 0, 0, 0.025)" },
-      { x: 278, y: 154, radius: 46, teeth: 10, speed: 0.0087, angle: 0.3, color: "rgba(0, 0, 0, 0.02)" },
-      { x: width - 200, y: height - 200, radius: 100, teeth: 24, speed: -0.003, angle: 0, color: "rgba(0, 0, 0, 0.03)" },
-      { x: width - 338, y: height - 200, radius: 40, teeth: 10, speed: 0.0075, angle: 0.25, color: "rgba(0, 0, 0, 0.02)" }
+      { x: 150, y: 250, radius: 80, teeth: 18, speed: 0.005, angle: 0, color: "rgba(0, 0, 0, 0.04)" },
+      { x: 278, y: 250, radius: 50, teeth: 12, speed: -0.008, angle: 0.1, color: "rgba(0, 0, 0, 0.035)" },
+      { x: 278, y: 154, radius: 46, teeth: 10, speed: 0.0087, angle: 0.3, color: "rgba(0, 0, 0, 0.03)" }
     ];
+
+    const updateGearPositions = () => {
+      if (gears.length >= 3) {
+        gears[0].x = 150;
+        gears[0].y = 250;
+        gears[1].x = 278;
+        gears[1].y = 250;
+        gears[2].x = 278;
+        gears[2].y = 154;
+      }
+    };
 
     // Floating particles (representing CFD flows)
     interface Particle {
@@ -149,7 +159,7 @@ export default function BackgroundCanvas() {
       for (let i = 0; i < gear.teeth; i++) {
         const angle = (Math.PI * 2 / gear.teeth) * i;
         const nextAngle = (Math.PI * 2 / gear.teeth) * (i + 1);
-        
+
         ctx.lineTo(Math.cos(angle) * innerRadius, Math.sin(angle) * innerRadius);
         ctx.lineTo(Math.cos(angle + 0.05) * outerRadius, Math.sin(angle + 0.05) * outerRadius);
         ctx.lineTo(Math.cos(nextAngle - 0.05) * outerRadius, Math.sin(nextAngle - 0.05) * outerRadius);
@@ -182,7 +192,7 @@ export default function BackgroundCanvas() {
     const drawLinkages = (ctx: CanvasRenderingContext2D) => {
       ctx.strokeStyle = "rgba(0, 0, 0, 0.02)";
       ctx.lineWidth = 3;
-      
+
       ctx.beginPath();
       ctx.moveTo(gears[0].x, gears[0].y);
       ctx.lineTo(gears[1].x, gears[1].y);
@@ -229,10 +239,10 @@ export default function BackgroundCanvas() {
       const angle1 = Math.acos(Math.max(-1, Math.min(1, cosAngle1)));
 
       const theta1 = alpha - angle1;
-      
+
       arm.x1 = arm.baseX + Math.cos(theta1) * arm.l1;
       arm.y1 = arm.baseY + Math.sin(theta1) * arm.l1;
-      
+
       arm.x2 = targetX;
       arm.y2 = targetY;
     };
@@ -241,7 +251,7 @@ export default function BackgroundCanvas() {
       solveIK();
 
       ctx.save();
-      
+
       ctx.strokeStyle = "rgba(0, 0, 0, 0.01)";
       ctx.lineWidth = 1.5;
       ctx.beginPath();
@@ -319,7 +329,7 @@ export default function BackgroundCanvas() {
           const dy = p.y - other.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < 80) {
-            ctx.strokeStyle = `rgba(0, 0, 0, ${(1 - dist/80) * 0.02})`;
+            ctx.strokeStyle = `rgba(0, 0, 0, ${(1 - dist / 80) * 0.02})`;
             ctx.lineWidth = 0.5;
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
@@ -335,23 +345,14 @@ export default function BackgroundCanvas() {
       ctx.clearRect(0, 0, width, height);
 
       drawGrid(ctx);
-      
+
       gears.forEach(g => {
         g.angle += g.speed;
-        
-        if (g.x > width && g.x < width + 500) {
-          g.x = width - (window.innerWidth - g.x);
-        }
-        if (g.y > height && g.y < height + 500) {
-          g.y = height - (window.innerHeight - g.y);
-        }
-        
         drawGear(ctx, g);
       });
 
       drawLinkages(ctx);
       drawParticles(ctx);
-      drawRoboticArm(ctx);
 
       animationId = requestAnimationFrame(animate);
     };

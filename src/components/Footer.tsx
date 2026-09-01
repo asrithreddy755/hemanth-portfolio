@@ -1,5 +1,5 @@
 "use client";
- 
+
 import React from "react";
 import { ArrowUp } from "lucide-react";
 
@@ -54,11 +54,11 @@ export default function Footer() {
               <a href="tel:+917075688699" className="body-small" style={{ color: "var(--text-muted-light)" }}>
                 +91 7075688699 ↗
               </a>
-              <a 
-                href="https://www.linkedin.com/in/pulagam-hemanth-siva-reddy?utm_source=share_via&utm_content=profile&utm_medium=member_ios" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="body-small" 
+              <a
+                href="https://www.linkedin.com/in/pulagam-hemanth-siva-reddy?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="body-small"
                 style={{ color: "var(--text-muted-light)" }}
               >
                 LINKEDIN ↗
@@ -71,10 +71,10 @@ export default function Footer() {
           <div className="body-small" style={{ textTransform: "none" }}>
             &copy; 2026 Pulagam Hemanth Siva Reddy. All rights reserved.
           </div>
-          <a 
-            href="#hero" 
-            className="back-to-top" 
-            onClick={handleScrollToTop} 
+          <a
+            href="#hero"
+            className="back-to-top"
+            onClick={handleScrollToTop}
             aria-label="Back to Top"
           >
             <ArrowUp size={16} />

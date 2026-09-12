@@ -23,7 +23,7 @@ export default function Leadership() {
   ];
 
   return (
-    <section id="leadership" className="section-dark">
+    <section id="leadership" className="section-light">
       <div className="vertical-label-container">
         <span className="vertical-label">CAMPUS // LEADERSHIP</span>
       </div>

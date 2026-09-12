@@ -8,7 +8,7 @@ export default function Skills() {
     {
       index: "01",
       title: "CAD & 3D Design",
-      skills: ["CATIA V5", "AutoCAD", "Fusion 360", "GD&T", "Assembly & Drafting"],
+      skills: ["CATIA V5", "AutoCAD", "Fusion 360"],
     },
     {
       index: "02",

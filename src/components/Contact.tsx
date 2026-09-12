@@ -13,6 +13,7 @@ export default function Contact({ showToast }: ContactProps) {
   
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -46,21 +47,65 @@ export default function Contact({ showToast }: ContactProps) {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-      showToast("Please fill out all fields.", "error");
+
+    // Basic validation
+    if (!formData.name.trim()) {
+      showToast("Please enter your name.", "error");
       return;
     }
-    
-    // Simulate successful message submission
-    showToast(`Thank you, ${formData.name}! Your message has been sent.`, "success");
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: ""
-    });
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      showToast("Please enter a valid email address.", "error");
+      return;
+    }
+    if (!formData.message.trim()) {
+      showToast("Please enter your message.", "error");
+      return;
+    }
+
+    // Prevent duplicate submissions
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+
+    try {
+      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+      if (!accessKey) {
+        throw new Error("Access key not configured.");
+      }
+
+      const payload = {
+        access_key: accessKey,
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        subject: formData.subject.trim() || "New Message From Portfolio",
+        message: formData.message.trim(),
+        from_name: "Portfolio Contact Form",
+      };
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        showToast(`Message sent successfully!`, "success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        throw new Error(result.message || "Submission failed.");
+      }
+    } catch {
+      showToast("Something went wrong. Please try again.", "error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -74,7 +119,7 @@ export default function Contact({ showToast }: ContactProps) {
           <div className="section-tag">
             <MessageSquare size={14} /> GET IN TOUCH
           </div>
-          <h2 className="display-medium">Have a Project in Mind? Let's Talk!</h2>
+          <h2 className="display-medium">Have a Project in Mind? Let&apos;s Talk!</h2>
         </div>
 
         <div className="contact-grid" style={{ marginLeft: "8.33%" }}>
@@ -164,7 +209,7 @@ export default function Contact({ showToast }: ContactProps) {
                   type="text" 
                   id="form-name" 
                   className="form-control" 
-                  placeholder="e.g. John Doe" 
+                  placeholder="e.g. Asrith" 
                   value={formData.name}
                   onChange={handleInputChange}
                   required 
@@ -177,7 +222,7 @@ export default function Contact({ showToast }: ContactProps) {
                   type="email" 
                   id="form-email" 
                   className="form-control" 
-                  placeholder="e.g. john@example.com" 
+                  placeholder="e.g. asrith@example.com" 
                   value={formData.email}
                   onChange={handleInputChange}
                   required 
@@ -205,12 +250,27 @@ export default function Contact({ showToast }: ContactProps) {
                   placeholder="Describe your project, question, or opportunity..." 
                   value={formData.message}
                   onChange={handleInputChange}
+                  maxLength={1000}
                   required 
                 />
+                <div style={{
+                  textAlign: "right",
+                  fontSize: "0.75rem",
+                  marginTop: "4px",
+                  color: formData.message.length >= 900 ? "#f87171" : "var(--text-muted, #6b7280)",
+                  transition: "color 0.2s"
+                }}>
+                  {formData.message.length} / 1000
+                </div>
               </div>
 
-              <button type="submit" className="btn-bracket" style={{ width: "100%", justifyContent: "center" }}>
-                <span className="bracket">[</span> SEND MESSAGE <span className="bracket">]</span>
+              <button
+                type="submit"
+                className="btn-bracket"
+                style={{ width: "100%", justifyContent: "center", opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? "not-allowed" : "pointer" }}
+                disabled={isSubmitting}
+              >
+                <span className="bracket">[</span>{isSubmitting ? " SENDING... " : " SEND MESSAGE "}<span className="bracket">]</span>
               </button>
             </form>
           </div>

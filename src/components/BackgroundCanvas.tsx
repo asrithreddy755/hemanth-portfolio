@@ -46,9 +46,9 @@ export default function BackgroundCanvas() {
     }
 
     const gears: Gear[] = [
-      { x: 150, y: 250, radius: 80, teeth: 18, speed: 0.005, angle: 0, color: "rgba(0, 0, 0, 0.04)" },
-      { x: 278, y: 250, radius: 50, teeth: 12, speed: -0.008, angle: 0.1, color: "rgba(0, 0, 0, 0.035)" },
-      { x: 278, y: 154, radius: 46, teeth: 10, speed: 0.0087, angle: 0.3, color: "rgba(0, 0, 0, 0.03)" }
+      { x: 150, y: 250, radius: 80, teeth: 18, speed: 0.005, angle: 0, color: "rgba(0, 0, 0, 0.018)" },
+      { x: 278, y: 250, radius: 50, teeth: 12, speed: -0.008, angle: 0.1, color: "rgba(0, 0, 0, 0.015)" },
+      { x: 278, y: 154, radius: 46, teeth: 10, speed: 0.0087, angle: 0.3, color: "rgba(0, 0, 0, 0.012)" }
     ];
 
     const updateGearPositions = () => {
@@ -99,8 +99,8 @@ export default function BackgroundCanvas() {
       const horizonY = height * 0.35 + (mouse.y - height / 2) * 0.03;
 
       ctx.save();
-      ctx.strokeStyle = "rgba(9, 9, 11, 0.025)"; // soft grey grid
-      ctx.lineWidth = 1;
+      ctx.strokeStyle = "rgba(9, 9, 11, 0.018)"; // soft grey grid
+      ctx.lineWidth = 0.4;
 
       // Draw horizon line
       ctx.beginPath();
@@ -152,8 +152,8 @@ export default function BackgroundCanvas() {
       const outerRadius = gear.radius + toothDepth;
 
       ctx.fillStyle = gear.color;
-      ctx.strokeStyle = gear.color.replace("0.0", "0.15");
-      ctx.lineWidth = 1.2;
+      ctx.strokeStyle = gear.color.replace("0.0", "0.04");
+      ctx.lineWidth = 0.6;
 
       ctx.beginPath();
       for (let i = 0; i < gear.teeth; i++) {
@@ -190,8 +190,8 @@ export default function BackgroundCanvas() {
     };
 
     const drawLinkages = (ctx: CanvasRenderingContext2D) => {
-      ctx.strokeStyle = "rgba(0, 0, 0, 0.02)";
-      ctx.lineWidth = 3;
+      ctx.strokeStyle = "rgba(0, 0, 0, 0.015)";
+      ctx.lineWidth = 1;
 
       ctx.beginPath();
       ctx.moveTo(gears[0].x, gears[0].y);
@@ -203,7 +203,7 @@ export default function BackgroundCanvas() {
       ctx.lineTo(gears[2].x, gears[2].y);
       ctx.stroke();
 
-      ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
+      ctx.fillStyle = "rgba(0, 0, 0, 0.035)";
       gears.forEach(g => {
         ctx.beginPath();
         ctx.arc(g.x, g.y, 4, 0, Math.PI * 2);
@@ -252,31 +252,31 @@ export default function BackgroundCanvas() {
 
       ctx.save();
 
-      ctx.strokeStyle = "rgba(0, 0, 0, 0.01)";
-      ctx.lineWidth = 1.5;
+      ctx.strokeStyle = "rgba(0, 0, 0, 0.008)";
+      ctx.lineWidth = 0.5;
       ctx.beginPath();
       ctx.arc(arm.baseX, arm.baseY, arm.l1 + arm.l2, 0, Math.PI * 2);
       ctx.stroke();
 
       // Shoulder to elbow
-      ctx.strokeStyle = "rgba(0, 0, 0, 0.04)";
-      ctx.lineWidth = 6;
+      ctx.strokeStyle = "rgba(0, 0, 0, 0.03)";
+      ctx.lineWidth = 2.5;
       ctx.beginPath();
       ctx.moveTo(arm.baseX, arm.baseY);
       ctx.lineTo(arm.x1, arm.y1);
       ctx.stroke();
 
       // Elbow to wrist
-      ctx.strokeStyle = "rgba(0, 0, 0, 0.05)";
-      ctx.lineWidth = 4;
+      ctx.strokeStyle = "rgba(0, 0, 0, 0.035)";
+      ctx.lineWidth = 1.5;
       ctx.beginPath();
       ctx.moveTo(arm.x1, arm.y1);
       ctx.lineTo(arm.x2, arm.y2);
       ctx.stroke();
 
       ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
-      ctx.strokeStyle = "rgba(0, 0, 0, 0.2)";
-      ctx.lineWidth = 2;
+      ctx.strokeStyle = "rgba(0, 0, 0, 0.12)";
+      ctx.lineWidth = 0.8;
 
       ctx.beginPath();
       ctx.arc(arm.baseX, arm.baseY, 12, 0, Math.PI * 2);
@@ -293,9 +293,9 @@ export default function BackgroundCanvas() {
       ctx.fill();
       ctx.stroke();
 
-      ctx.strokeStyle = "rgba(0, 0, 0, 0.08)";
-      ctx.lineWidth = 1;
-      ctx.setLineDash([4, 4]);
+      ctx.strokeStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.lineWidth = 0.5;
+      ctx.setLineDash([3, 5]);
       ctx.beginPath();
       ctx.moveTo(arm.x2, arm.y2);
       ctx.lineTo(mouse.targetX, mouse.targetY);
@@ -329,8 +329,8 @@ export default function BackgroundCanvas() {
           const dy = p.y - other.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < 80) {
-            ctx.strokeStyle = `rgba(0, 0, 0, ${(1 - dist / 80) * 0.02})`;
-            ctx.lineWidth = 0.5;
+            ctx.strokeStyle = `rgba(0, 0, 0, ${(1 - dist / 80) * 0.012})`;
+            ctx.lineWidth = 0.3;
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(other.x, other.y);

@@ -42,7 +42,7 @@ export default function About() {
             </p>
             <div style={{ marginTop: "1rem" }}>
               <a href="#contact" className="btn-bracket">
-                <span className="bracket">[</span> LET'S COLLABORATE <span className="bracket">]</span>
+                <span className="bracket">[</span> LET&apos;S COLLABORATE <span className="bracket">]</span>
               </a>
             </div>
           </div>

@@ -27,7 +27,12 @@ export default function Certifications() {
             <p className="cert-desc">
               Fiber-reinforced composite mechanics, anisotropic elasticity, laminate theory, manufacturing processes, and mechanical failure criteria.
             </p>
-            <div className="cert-issuer">IIT // NPTEL</div>
+            <div className="cert-issuer" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "1rem" }}>
+              <span>IIT // NPTEL</span>
+              <a href="/NPTEL.pdf" target="_blank" rel="noopener noreferrer" className="btn-bracket" style={{ fontSize: "0.85rem", whiteSpace: "nowrap" }}>
+                <span className="bracket">[</span> Show Certificate <span className="bracket">]</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

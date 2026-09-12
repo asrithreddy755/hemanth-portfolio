@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Mail, Phone, MapPin, Compass, Briefcase, Eye, Cpu, Wind, ShieldAlert } from "lucide-react";
+import { Mail, Phone, MapPin, Compass, Briefcase, Eye, Cpu, Wind, ShieldAlert, FolderOpen } from "lucide-react";
 import Card3D from "./Card3D";
 
 interface HeroProps {
@@ -116,9 +116,8 @@ export default function Hero({ onOpenResume }: HeroProps) {
               <span>Final-Year Mechanical Engineering Student</span>
             </div>
 
-            <h1 className="hero-title" style={{ fontFamily: "var(--font-heading)", fontSize: "5rem", fontWeight: 300, lineHeight: 0.95, marginBottom: "2rem" }}>
-              P. Hemanth <br />
-              <span style={{ fontStyle: "italic" }}>Siva Reddy</span>
+            <h1 className="hero-title" style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(2.4rem, 4.5vw, 5rem)", fontWeight: 300, lineHeight: 0.95, marginBottom: "2rem", whiteSpace: "nowrap" }}>
+              P. Hemanth <span style={{ fontStyle: "italic" }}>Siva Reddy</span>
             </h1>
 
             <div className="hero-role-wrapper">
@@ -133,37 +132,43 @@ export default function Hero({ onOpenResume }: HeroProps) {
               industrial implementations.
             </p>
 
-            <div className="hero-cta-group">
-              <a href="#projects" className="btn-bracket">
+            <div className="hero-cta-group" style={{ display: "grid", gridTemplateColumns: "repeat(3, auto)", gap: "0.75rem", justifyContent: "start" }}>
+              {/* Row 1 */}
+              <a href="#projects" className="btn-bracket" style={{ textAlign: "center" }}>
                 <span className="bracket">[</span> EXPLORE PROJECTS <span className="bracket">]</span>
               </a>
-              <a href="#experience" className="btn-bracket">
+              <a href="#experience" className="btn-bracket" style={{ textAlign: "center" }}>
                 <span className="bracket">[</span> EXPERIENCE <span className="bracket">]</span>
               </a>
-              <button className="btn-bracket" onClick={onOpenResume}>
+              <button className="btn-bracket" onClick={onOpenResume} style={{ textAlign: "center" }}>
                 <span className="bracket">[</span> VIEW RESUME <span className="bracket">]</span>
               </button>
+              {/* Row 2 — span middle to center the two buttons */}
+              <a
+                href="https://www.linkedin.com/in/hemanth-siva-reddy-pulagam"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-bracket"
+                style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.4rem", gridColumn: "1" }}
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                <span className="bracket">[</span> LINKEDIN <span className="bracket">]</span>
+              </a>
+              <a
+                href="https://drive.google.com/drive/folders/14GM-Km6K7mk-qKx7XNwS8OeJ5JBEWsrY"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-bracket"
+                style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.4rem", gridColumn: "2" }}
+              >
+                <FolderOpen size={13} />
+                <span className="bracket">[</span> DRIVE <span className="bracket">]</span>
+              </a>
             </div>
 
-            {/* Meta Table Coordinate System (Osvald Technical Sidebar style) */}
-            <div className="hero-contact-strip" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem 2rem", borderTop: "1px solid var(--border-light)", paddingTop: "1.5rem", marginTop: "2rem" }}>
-              <div>
-                <span className="body-small" style={{ display: "block" }}>COORD:</span>
-                <span className="body-small" style={{ color: "var(--text-dark)", fontWeight: 600 }}>16.5447° N // 81.5226° E</span>
-              </div>
-              <div>
-                <span className="body-small" style={{ display: "block" }}>SYSTEM:</span>
-                <span className="body-small" style={{ color: "var(--text-dark)", fontWeight: 600 }}>MECH DESIGN V2</span>
-              </div>
-              <div>
-                <span className="body-small" style={{ display: "block" }}>SCALE:</span>
-                <span className="body-small" style={{ color: "var(--text-dark)", fontWeight: 600 }}>MONOLITHIC / OPTIMIZED</span>
-              </div>
-              <div>
-                <span className="body-small" style={{ display: "block" }}>INSTITUTION:</span>
-                <span className="body-small" style={{ color: "var(--text-dark)", fontWeight: 600 }}>VIT BHIMAVARAM</span>
-              </div>
-            </div>
+
           </div>
 
           {/* Right Visual Column — Clean Grayscale Portrait */}

@@ -51,45 +51,6 @@ export default function Experience() {
                   </div>
                 </div>
 
-                {/* Custom Inline SVG CFD Pipe flow Simulation Visual */}
-                <div className="exp-visual-banner">
-                  <svg
-                    className="exp-visual-svg"
-                    viewBox="0 0 600 160"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect width="600" height="160" fill="var(--bg-light)" />
-                    <text x="15" y="25" fill="var(--text-muted-light)" fontSize="10" fontFamily="var(--font-mono)">
-                      ANSYS Fluent Transient Multiphase Pipe Flow Simulation
-                    </text>
-                    
-                    {/* CFD Pipe Structure */}
-                    <rect x="50" y="45" width="500" height="60" rx="2" fill="none" stroke="var(--border-light)" strokeWidth="1" />
-                    
-                    {/* Multiphase Fluid Interfaces (VOF representation) */}
-                    <path d="M 51 46 Q 150 55 250 50 T 450 52 T 549 46 L 549 60 L 51 60 Z" fill="rgba(0, 0, 0, 0.02)" />
-                    <path d="M 51 60 Q 150 75 250 70 T 450 68 T 549 60 L 549 104 L 51 104 Z" fill="rgba(0, 0, 0, 0.05)" />
-                    
-                    {/* Injected Gas Bubbles */}
-                    <circle cx="100" cy="75" r="8" fill="none" stroke="var(--border-light)" strokeWidth="1" />
-                    <circle cx="115" cy="78" r="4" fill="none" stroke="var(--border-light)" strokeWidth="1" />
-                    <circle cx="210" cy="65" r="6" fill="none" stroke="var(--border-light)" strokeWidth="1" />
-                    <circle cx="340" cy="80" r="10" fill="none" stroke="var(--border-light)" strokeWidth="1" />
-                    <circle cx="480" cy="70" r="7" fill="none" stroke="var(--border-light)" strokeWidth="1" />
-                    
-                    {/* Flow Direction Arrows */}
-                    <line x1="15" y1="75" x2="35" y2="75" stroke="var(--text-dark)" strokeWidth="1" />
-                    <path d="M 30 70 L 35 75 L 30 80" stroke="var(--text-dark)" strokeWidth="1" fill="none" />
-                    <text x="12" y="93" fill="var(--text-dark)" fontSize="9" fontFamily="var(--font-mono)">INLET</text>
-
-                    {/* Outlet */}
-                    <line x1="565" y1="75" x2="585" y2="75" stroke="var(--text-dark)" strokeWidth="1" />
-                    <path d="M 580 70 L 585 75 L 580 80" stroke="var(--text-dark)" strokeWidth="1" fill="none" />
-                    <text x="560" y="93" fill="var(--text-dark)" fontSize="9" fontFamily="var(--font-mono)">OUTLET</text>
-                  </svg>
-                </div>
-
                 <ul className="exp-bullets">
                   <li>
                     Performed numerical analysis of transient three-phase pipe flow involving air, water, and engine oil using <strong>ANSYS Fluent</strong>.
@@ -126,60 +87,6 @@ export default function Experience() {
                     <h3 className="exp-role">Manufacturing Engineering Intern</h3>
                     <div className="exp-company">Yamaha Motor India Pvt. Ltd., Chennai</div>
                   </div>
-                </div>
-
-                {/* Custom Inline SVG Manufacturing Line Balancing Visual */}
-                <div className="exp-visual-banner">
-                  <svg
-                    className="exp-visual-svg"
-                    viewBox="0 0 600 160"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect width="600" height="160" fill="var(--bg-light)" />
-                    <text x="15" y="25" fill="var(--text-muted-light)" fontSize="10" fontFamily="var(--font-mono)">
-                      CKD Manufacturing Line Balancing & Cycle Time Study
-                    </text>
-
-                    {/* Flow stations */}
-                    <rect x="35" y="55" width="85" height="40" rx="2" fill="none" stroke="var(--border-light)" strokeWidth="1" />
-                    <text x="77" y="70" fill="var(--text-dark)" fontSize="10" fontFamily="var(--font-body)" textAnchor="middle" fontWeight="bold">Casting</text>
-                    <text x="77" y="83" fill="var(--text-muted-light)" fontSize="8" fontFamily="var(--font-mono)" textAnchor="middle">CT = 45s</text>
-
-                    {/* Connection Arrow */}
-                    <path d="M 125 75 L 145 75" stroke="var(--border-light)" strokeWidth="1" />
-                    <path d="M 140 71 L 145 75 L 140 79" stroke="var(--border-light)" strokeWidth="1" fill="none" />
-
-                    {/* Station 2: Machining */}
-                    <rect x="155" y="55" width="90" height="40" rx="2" fill="none" stroke="var(--border-light)" strokeWidth="1" />
-                    <text x="200" y="70" fill="var(--text-dark)" fontSize="10" fontFamily="var(--font-body)" textAnchor="middle" fontWeight="bold">Machining</text>
-                    <text x="200" y="83" fill="var(--text-muted-light)" fontSize="8" fontFamily="var(--font-mono)" textAnchor="middle">CT = 52s</text>
-
-                    {/* Connection Arrow */}
-                    <path d="M 250 75 L 270 75" stroke="var(--border-light)" strokeWidth="1" />
-                    <path d="M 265 71 L 270 75 L 265 79" stroke="var(--border-light)" strokeWidth="1" fill="none" />
-
-                    {/* Station 3: Assembly (Bottleneck Highlighted in bold/darker border) */}
-                    <rect x="280" y="55" width="95" height="40" rx="2" fill="none" stroke="var(--text-dark)" strokeWidth="1.5" />
-                    <text x="327" y="70" fill="var(--text-dark)" fontSize="10" fontFamily="var(--font-body)" textAnchor="middle" fontWeight="bold">CKD Assembly</text>
-                    <text x="327" y="83" fill="var(--text-dark)" fontSize="8" fontFamily="var(--font-mono)" textAnchor="middle" fontWeight="bold">CT = 78s ⚠️</text>
-
-                    {/* Connection Arrow */}
-                    <path d="M 380 75 L 400 75" stroke="var(--border-light)" strokeWidth="1" />
-                    <path d="M 395 71 L 400 75 L 395 79" stroke="var(--border-light)" strokeWidth="1" fill="none" />
-
-                    {/* Station 4: QA Inspection */}
-                    <rect x="410" y="55" width="85" height="40" rx="2" fill="none" stroke="var(--border-light)" strokeWidth="1" />
-                    <text x="452" y="70" fill="var(--text-dark)" fontSize="10" fontFamily="var(--font-body)" textAnchor="middle" fontWeight="bold">QA Check</text>
-                    <text x="452" y="83" fill="var(--text-muted-light)" fontSize="8" fontFamily="var(--font-mono)" textAnchor="middle">CT = 35s</text>
-
-                    {/* Takt Time line indicator */}
-                    <line x1="30" y1="120" x2="570" y2="120" stroke="var(--text-muted-light)" strokeWidth="1" strokeDasharray="2, 2" />
-                    <text x="35" y="135" fill="var(--text-muted-light)" fontSize="8" fontFamily="var(--font-mono)">Target Takt Time = 60s</text>
-
-                    {/* Bottleneck Callout */}
-                    <text x="370" y="28" fill="var(--text-dark)" fontSize="8" fontFamily="var(--font-mono)" textAnchor="middle" fontWeight="bold">BOTTLENECK DETECTED (CT &gt; TAKT)</text>
-                  </svg>
                 </div>
 
                 <ul className="exp-bullets">

@@ -238,7 +238,7 @@ export default function Modals({ activeModal, onClose, showToast }: ModalsProps)
             <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "1.5rem" }}>
               <span className="tech-tag">ANSYS Fluent</span>
               <span className="tech-tag">Multiphase CFD</span>
-              <span className="tech-tag">Computational Meshing</span>
+
               <span className="tech-tag">SRM University AP</span>
               <span className="tech-tag">Stipend: ₹8,000</span>
             </div>

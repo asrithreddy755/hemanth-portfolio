@@ -13,7 +13,7 @@ export default function Skills() {
     {
       index: "02",
       title: "Simulation & Analysis",
-      skills: ["ANSYS Fluent (CFD)", "Multiphase Flow Modeling", "Computational Meshing", "Transient Flow Analysis"],
+      skills: ["ANSYS Fluent (CFD)", "Multiphase Flow Modeling", "Transient Flow Analysis"],
     },
     {
       index: "03",
@@ -23,7 +23,7 @@ export default function Skills() {
     {
       index: "04",
       title: "Languages",
-      skills: ["Telugu (Native)", "English (Professional)", "Hindi (Working)", "German (Basic)"],
+      skills: ["Telugu (Native)", "English", "Hindi (Basic)", "German (Basic)"],
     },
     {
       index: "05",

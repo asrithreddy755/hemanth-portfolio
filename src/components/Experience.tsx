@@ -66,7 +66,7 @@ export default function Experience() {
                 <div className="exp-tags">
                   <span className="tech-tag">ANSYS Fluent</span>
                   <span className="tech-tag">Multiphase CFD</span>
-                  <span className="tech-tag">Computational Meshing</span>
+
                   <span className="tech-tag">Transient Flow</span>
                 </div>
               </div>

@@ -9,8 +9,12 @@ const oilImages = [
     caption: "Full prototype assembly – active oil-leakage detection unit",
   },
   {
-    url: "/oil-leakage detection prototype/1.jpeg",
-    caption: "Close-up of sensor integration and wiring on the prototype board",
+    url: "/project1.jpg",
+    caption: "Additional mentor project image 1",
+  },
+  {
+    url: "/project2.jpg",
+    caption: "Additional mentor project image 2",
   },
 ];
 

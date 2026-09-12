@@ -77,7 +77,7 @@ export default function Footer() {
                 +91 7075688699 ↗
               </a>
               <a
-                href="https://www.linkedin.com/in/pulagam-hemanth-siva-reddy?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+                href="https://www.linkedin.com/in/pulagam-hemanth-siva-reddy"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: "var(--text-muted-light)", textDecoration: "none", fontSize: "0.72rem", fontFamily: "var(--font-mono)" }}

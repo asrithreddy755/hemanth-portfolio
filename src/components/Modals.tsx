@@ -354,7 +354,7 @@ export default function Modals({ activeModal, onClose, showToast }: ModalsProps)
               </div>
               <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
                 <a
-                  href="/hemanth siva reddy.pdf"
+                  href="/hemanth_siva_reddy.pdf"
                   download="Hemanth_Siva_Reddy_Resume.pdf"
                   className="btn btn-primary btn-sm"
                   style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", textDecoration: "none" }}
@@ -377,7 +377,7 @@ export default function Modals({ activeModal, onClose, showToast }: ModalsProps)
               minHeight: "65vh",
             }}>
               <iframe
-                src="/hemanth siva reddy.pdf"
+                src="/hemanth_siva_reddy.pdf"
                 title="Hemanth Siva Reddy Resume"
                 width="100%"
                 height="100%"

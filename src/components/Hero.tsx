@@ -145,7 +145,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
               </button>
               {/* Row 2 — span middle to center the two buttons */}
               <a
-                href="https://www.linkedin.com/in/hemanth-siva-reddy-pulagam"
+                href="https://www.linkedin.com/in/pulagam-hemanth-siva-reddy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-bracket"

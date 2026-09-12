@@ -166,7 +166,7 @@ export default function Contact({ showToast }: ContactProps) {
                 <div>
                   <div className="contact-label">Professional Network</div>
                   <a 
-                    href="https://www.linkedin.com/in/pulagam-hemanth-siva-reddy?utm_source=share_via&utm_content=profile&utm_medium=member_ios" 
+                    href="https://www.linkedin.com/in/pulagam-hemanth-siva-reddy" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="contact-value"
@@ -176,7 +176,7 @@ export default function Contact({ showToast }: ContactProps) {
                 </div>
               </div>
               <a 
-                href="https://www.linkedin.com/in/pulagam-hemanth-siva-reddy?utm_source=share_via&utm_content=profile&utm_medium=member_ios" 
+                href="https://www.linkedin.com/in/pulagam-hemanth-siva-reddy" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="copy-btn"

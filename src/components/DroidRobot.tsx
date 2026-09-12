@@ -174,6 +174,11 @@ export default function DroidRobot() {
             transform: rotate(0deg);
           }
         }
+        @media (max-width: 1024px) {
+          .bottom-right-droid {
+            display: none !important;
+          }
+        }
         .sensor-float-l {
           animation: sensorFloatL 3.2s ease-in-out infinite;
         }

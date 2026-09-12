@@ -42,7 +42,7 @@ export default function MentorSection() {
           </p>
         </div>
 
-        <div className="mentor-card" style={{ marginLeft: "8.33%" }}>
+        <div className="mentor-card grid-offset">
           {/* Left: Image gallery */}
           <div className="mentor-gallery">
             <div className="mentor-gallery-main">
@@ -51,6 +51,7 @@ export default function MentorSection() {
                 alt={oilImages[activeIdx].caption}
                 key={activeIdx}
                 className="mentor-gallery-img"
+                style={{ objectFit: activeIdx === 1 ? "contain" : "cover" }}
               />
               {/* Navigation arrows */}
               {oilImages.length > 1 && (

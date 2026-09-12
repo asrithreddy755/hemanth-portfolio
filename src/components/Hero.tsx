@@ -110,13 +110,13 @@ export default function Hero({ onOpenResume }: HeroProps) {
       <div className="container">
         <div className="hero-grid">
           {/* Left Content Column */}
-          <div className="hero-content" style={{ paddingLeft: "8.33%" }}>
+          <div className="hero-content grid-offset-pad">
             <div className="hero-badge">
               <span className="status-dot"></span>
               <span>Final-Year Mechanical Engineering Student</span>
             </div>
 
-            <h1 className="hero-title" style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(2.4rem, 4.5vw, 5rem)", fontWeight: 300, lineHeight: 0.95, marginBottom: "2rem", whiteSpace: "nowrap" }}>
+            <h1 className="hero-title" style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(2.4rem, 4.5vw, 5rem)", fontWeight: 300, lineHeight: 0.95, marginBottom: "2rem" }}>
               P. Hemanth <span style={{ fontStyle: "italic" }}>Siva Reddy</span>
             </h1>
 
@@ -132,8 +132,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
               industrial implementations.
             </p>
 
-            <div className="hero-cta-group" style={{ display: "grid", gridTemplateColumns: "repeat(3, auto)", gap: "0.75rem", justifyContent: "start" }}>
-              {/* Row 1 */}
+            <div className="hero-cta-group" style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem", justifyContent: "flex-start" }}>
               <a href="#projects" className="btn-bracket" style={{ textAlign: "center" }}>
                 <span className="bracket">[</span> EXPLORE PROJECTS <span className="bracket">]</span>
               </a>
@@ -143,13 +142,12 @@ export default function Hero({ onOpenResume }: HeroProps) {
               <button className="btn-bracket" onClick={onOpenResume} style={{ textAlign: "center" }}>
                 <span className="bracket">[</span> VIEW RESUME <span className="bracket">]</span>
               </button>
-              {/* Row 2 — span middle to center the two buttons */}
               <a
                 href="https://www.linkedin.com/in/pulagam-hemanth-siva-reddy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-bracket"
-                style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.4rem", gridColumn: "1" }}
+                style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.4rem" }}
               >
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -161,7 +159,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-bracket"
-                style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.4rem", gridColumn: "2" }}
+                style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.4rem" }}
               >
                 <FolderOpen size={13} />
                 <span className="bracket">[</span> DRIVE <span className="bracket">]</span>

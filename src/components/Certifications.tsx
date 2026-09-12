@@ -18,7 +18,7 @@ export default function Certifications() {
           <h2 className="display-medium">Certifications.</h2>
         </div>
 
-        <div className="cert-grid" style={{ marginLeft: "8.33%" }}>
+        <div className="cert-grid grid-offset">
           <div className="cert-card">
             <div className="cert-icon-box">
               <Scroll size={24} />

@@ -122,7 +122,7 @@ export default function Contact({ showToast }: ContactProps) {
           <h2 className="display-medium">Have a Project in Mind? Let&apos;s Talk!</h2>
         </div>
 
-        <div className="contact-grid" style={{ marginLeft: "8.33%" }}>
+        <div className="contact-grid grid-offset">
           {/* Left Info Column */}
           <div className="contact-info-panel">
             {/* Email item */}

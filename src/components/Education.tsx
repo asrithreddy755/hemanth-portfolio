@@ -48,7 +48,7 @@ export default function Education() {
           <h2 className="display-medium">Education & Background.</h2>
         </div>
 
-        <div className="education-grid" style={{ marginLeft: "8.33%" }}>
+        <div className="education-grid grid-offset">
           {educationData.map((edu, idx) => (
             <div key={idx} className="edu-card">
               <div>

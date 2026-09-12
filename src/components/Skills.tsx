@@ -52,7 +52,7 @@ export default function Skills() {
           <h2 className="display-medium">Skills & Core Expertise.</h2>
         </div>
 
-        <div className="skills-grid" style={{ marginLeft: "8.33%" }}>
+        <div className="skills-grid grid-offset">
           {technicalCategories.map((cat, idx) => (
             <div key={idx} className="skill-category-card">
               <div className="skill-cat-header">

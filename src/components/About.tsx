@@ -18,7 +18,7 @@ export default function About() {
           <h2 className="display-medium">Built on Precision.</h2>
         </div>
 
-        <div className="about-grid" style={{ paddingLeft: "8.33%" }}>
+        <div className="about-grid grid-offset-pad">
           {/* Left Narrative Column */}
           <div className="about-narrative">
             <p className="body-large" style={{ color: "var(--text-light)" }}>

@@ -36,7 +36,7 @@ export default function Leadership() {
           <h2 className="display-medium">Leadership & Activities.</h2>
         </div>
 
-        <div className="leadership-grid" style={{ marginLeft: "8.33%" }}>
+        <div className="leadership-grid grid-offset">
           {leadershipData.map((item, idx) => (
             <div key={idx} className="leadership-card">
               <div className="lead-icon-box">

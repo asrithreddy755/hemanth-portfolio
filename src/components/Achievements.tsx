@@ -44,7 +44,7 @@ export default function Achievements() {
           <h2 className="display-medium">Honors &amp; Achievements.</h2>
         </div>
 
-        <div className="achievements-grid" style={{ marginLeft: "8.33%" }}>
+        <div className="achievements-grid grid-offset">
           {achievementsData.map((item, idx) => (
             <div key={idx} className="achievement-card">
               <div className="trophy-badge">{item.icon}</div>

@@ -75,7 +75,7 @@ export default function Projects({ onOpenModal }: ProjectsProps) {
           <h2 className="display-medium">My Projects.</h2>
         </div>
 
-        <div className="projects-grid" style={{ marginLeft: "8.33%" }}>
+        <div className="projects-grid grid-offset">
           {/* PROJECT 1: AGRO-MACHINE */}
           <div className="project-card">
             <div className="project-banner">

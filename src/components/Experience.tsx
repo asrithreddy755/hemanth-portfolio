@@ -19,7 +19,7 @@ export default function Experience() {
           <h2 className="display-medium">Work Experience.</h2>
         </div>
 
-        <div className="timeline" style={{ marginLeft: "8.33%" }}>
+        <div className="timeline grid-offset">
           {/* SRM University AP Internship */}
           <div className="timeline-item">
             <div className="exp-year-col">

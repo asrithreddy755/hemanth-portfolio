@@ -18,7 +18,7 @@ export default function Skills() {
     {
       index: "03",
       title: "Data & Process Tools",
-      skills: ["Microsoft Excel", "Power BI (Basic)", "PowerPoint & Word", "Cycle-Time Documentation"],
+      skills: ["Microsoft Excel", "Power BI (Basic)", "PowerPoint & Word"],
     },
     {
       index: "04",
@@ -49,7 +49,7 @@ export default function Skills() {
           <div className="section-tag">
             <Laptop size={14} /> COMPETENCIES
           </div>
-          <h2 className="display-medium">Skills & Core Expertise.</h2>
+          <h2 className="display-medium">Skills.</h2>
         </div>
 
         <div className="skills-grid grid-offset">

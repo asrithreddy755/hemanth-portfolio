@@ -51,7 +51,7 @@ export default function MentorSection() {
                 alt={oilImages[activeIdx].caption}
                 key={activeIdx}
                 className="mentor-gallery-img"
-                style={{ objectFit: activeIdx === 1 ? "contain" : "cover" }}
+                style={{ objectFit: activeIdx === 1 || activeIdx === 2 ? "contain" : "cover" }}
               />
               {/* Navigation arrows */}
               {oilImages.length > 1 && (

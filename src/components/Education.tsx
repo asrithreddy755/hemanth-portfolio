@@ -11,7 +11,7 @@ export default function Education() {
       degree: "Bachelor of Technology",
       field: "Mechanical Engineering",
       institution: "Vishnu Institute of Technology, Bhimavaram",
-      scoreLabel: "Cumulative GPA",
+      scoreLabel: "CGPA",
       scoreValue: "8.22 / 10.0",
     },
     {
@@ -20,7 +20,7 @@ export default function Education() {
       degree: "Intermediate (M.P.C)",
       field: "Maths, Physics & Chemistry",
       institution: "Sasi Junior College, Tanuku",
-      scoreLabel: "Final Score",
+      scoreLabel: "Percentage",
       scoreValue: "91.6%",
     },
     {
@@ -29,7 +29,7 @@ export default function Education() {
       degree: "Secondary School (SSC)",
       field: "10th Standard Board",
       institution: "Sri Chaitanya Techno School, Penugonda",
-      scoreLabel: "Perfect Score",
+      scoreLabel: "Percentage",
       scoreValue: "100%",
     },
   ];
@@ -45,7 +45,7 @@ export default function Education() {
           <div className="section-tag">
             <GraduationCap size={14} /> ACADEMIC JOURNEY
           </div>
-          <h2 className="display-medium">Education & Background.</h2>
+          <h2 className="display-medium">Education.</h2>
         </div>
 
         <div className="education-grid grid-offset">

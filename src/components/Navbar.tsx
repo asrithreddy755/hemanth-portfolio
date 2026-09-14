@@ -63,7 +63,6 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
           {/* Logo & Brand */}
           <a href="#hero" className="brand-container">
             <span className="brand-logo-text">HEMANTH.</span>
-            <span className="brand-coords-badge">16.54° N</span>
           </a>
 
           {/* Desktop Navigation */}

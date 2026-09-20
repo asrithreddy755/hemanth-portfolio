@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
+import Preloader from "@/components/Preloader";
 import BackgroundCanvas from "@/components/BackgroundCanvas";
 import DroidRobot from "@/components/DroidRobot";
 import Navbar from "@/components/Navbar";
@@ -26,8 +27,21 @@ interface ToastMsg {
 }
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
   const [activeModal, setActiveModal] = useState<string | null>(null);
   const [toasts, setToasts] = useState<ToastMsg[]>([]);
+
+  // Lock scroll while preloader is visible
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isLoading]);
 
   // Open specific modal helper
   const handleOpenModal = useCallback((id: string) => {
@@ -52,11 +66,17 @@ export default function Home() {
 
   return (
     <>
+      {/* Asset Downloading & System Initialization Preloader */}
+      {isLoading && (
+        <Preloader onComplete={() => setIsLoading(false)} />
+      )}
+
       {/* Dynamic Mechanical Background canvas */}
       <BackgroundCanvas />
 
       {/* Interactive Droid Robot in Bottom-Right Corner */}
       <DroidRobot />
+
 
       {/* Navigation Header */}
       <Navbar onOpenResume={() => handleOpenModal("resume")} />

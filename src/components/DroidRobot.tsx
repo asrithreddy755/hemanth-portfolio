@@ -2,7 +2,19 @@
 
 import React, { useState, useEffect, useRef } from "react";
 
-export default function DroidRobot() {
+interface DroidRobotProps {
+  speechBubble?: string;
+  zIndex?: number;
+  style?: React.CSSProperties;
+  className?: string;
+}
+
+export default function DroidRobot({
+  speechBubble,
+  zIndex = 15,
+  style = {},
+  className = "bottom-right-droid",
+}: DroidRobotProps = {}) {
   const [headYaw, setHeadYaw] = useState(0);
   const [headPitch, setHeadPitch] = useState(0);
   const [eyeOffset, setEyeOffset] = useState({ x: 0, y: 0 });
@@ -115,18 +127,69 @@ export default function DroidRobot() {
   return (
     <div
       ref={droidRef}
-      className="bottom-right-droid"
+      className={className}
       style={{
         position: "fixed",
         bottom: "20px",
         right: "25px",
         width: "215px",
         height: "255px",
-        zIndex: 15,
+        zIndex: zIndex,
         pointerEvents: "none",
         filter: "drop-shadow(0 8px 16px rgba(0,0,0,0.12))",
+        ...style,
       }}
     >
+      {speechBubble && (
+        <div
+          style={{
+            position: "absolute",
+            bottom: "100%",
+            right: "15px",
+            marginBottom: "12px",
+            padding: "0.55rem 0.9rem",
+            background: "#ffffff",
+            border: "1px solid rgba(22, 163, 74, 0.4)",
+            borderRadius: "8px",
+            boxShadow: "0 6px 20px rgba(0, 0, 0, 0.08)",
+            fontFamily: "var(--font-mono, monospace)",
+            fontSize: "0.75rem",
+            color: "#0a0a0a",
+            whiteSpace: "nowrap",
+            zIndex: zIndex + 5,
+            pointerEvents: "auto",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: "0.45rem" }}>
+            <span
+              style={{
+                width: "7px",
+                height: "7px",
+                borderRadius: "50%",
+                background: "#16a34a",
+                boxShadow: "0 0 8px rgba(22, 163, 74, 0.8)",
+                display: "inline-block",
+              }}
+            />
+            <span style={{ fontWeight: 600, letterSpacing: "0.02em" }}>{speechBubble}</span>
+          </div>
+          {/* Speech Arrow */}
+          <div
+            style={{
+              position: "absolute",
+              bottom: "-5px",
+              right: "35px",
+              width: "10px",
+              height: "10px",
+              background: "#ffffff",
+              borderRight: "1px solid rgba(22, 163, 74, 0.4)",
+              borderBottom: "1px solid rgba(22, 163, 74, 0.4)",
+              transform: "rotate(45deg)",
+            }}
+          />
+        </div>
+      )}
+
       <style>{`
         @keyframes sensorFloatL {
           0%, 100% {

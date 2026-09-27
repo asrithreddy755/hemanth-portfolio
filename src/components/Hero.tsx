@@ -238,7 +238,6 @@ export default function Hero({ onOpenResume }: HeroProps) {
                           width: "100%",
                           height: "100%",
                           objectFit: "cover",
-                          filter: "grayscale(100%) contrast(105%)"
                         }}
                       />
                     </div>
